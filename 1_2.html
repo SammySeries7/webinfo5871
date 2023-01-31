@@ -1,0 +1,816 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> INFO 5871 project </title>
+	<link rel="stylesheet" href="app.css">
+</head>
+
+<nav class="menu-bar">
+	<h1 class="logo">Tittiwat<span>T.</span></h1>
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Project <i class="fas fa-caret-down"></i></a>
+
+			<div class="dropdown-menu">
+				<ul>
+					<!--<li><a href="#">Pricing</a></li>-->
+					<!--<li><a href="#">Portfolio</a></li>-->
+					<li>
+						<a href="#">Module-1 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Introduction</a></li>
+								<li><a href="1_2.html">Data</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-2 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="#">Module-1</a></li>
+								<li><a href="#">Module-2</a></li>
+								<li><a href="#">Module-3</a></li>
+								<li><a href="#">Module-4</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-3 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="#">Module-1</a></li>
+								<li><a href="#">Module-2</a></li>
+								<li><a href="#">Module-3</a></li>
+								<li><a href="#">Module-4</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-4 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="#">Module-1</a></li>
+								<li><a href="#">Module-2</a></li>
+								<li><a href="#">Module-3</a></li>
+								<li><a href="#">Module-4</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li><a href="#">FAQ</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="#">Blog</a>
+		</li>
+		<li><a href="#">Contact us</a></li>
+	</ul>
+</nav>
+
+<br>
+
+<body>
+
+	<main id="main">
+		<h1>Dataset</h1>
+		<br>
+
+		<section id="Reddit" class="card">
+			<div class="arial">
+				<h2>Data gathering</h2>
+				<br>
+				<p>
+					Most of the text data come from Reddit, Twitter, NewsAPI, CNBC, 
+					and InsideEVs. This section will explain how to retrieve data using both APIs and web scraping 
+					in detail and how to clean the data after the data were gathered together.
+				</p>
+				<br>
+				<h3>Reddit</h3>
+				<br>
+
+					<p>
+						The data from reddit could be retrieved by using the Reddit API. 
+						In Python, there is the praw reddit API wrapper, which helps to connect with the Reddit API to retrieve the data. 
+						The details are in https://praw.readthedocs.io/en/stable/. 
+					</p>
+				<br>
+				<div class="img">
+				<img width="600" src="image/reddit1.jpg">
+				<div class="caption">Praw API wrappers and query parameter</div>
+				</div>
+				<br>
+				
+					<p>
+					Before you can retrieve the data, you need to apply for the Reddit API developer account first. 
+					Once you apply for the API, you would get the client_id, client_secret, and user_agent. 
+					Then, your account information is input in the praw API wrapper as shown in the picture above. 
+					The required parameters are keyword, specified subreddit, the number of posts related to that keyword. 
+					The subreddit is a category of posts. For example, if the subreddit is Python, all retrieved posts will be about Python. 
+					In this case, the keyword is “ev”, and subreddit is “all”, which will be searched in all categories. The number of posts is limited to 500. 
+					</p>
+				
+				<br>
+				
+					<div class="img">
+					<img width="600" src="image/reddit2.jpg">
+					<div class="caption">The attributes of reddit data</div>
+					</div>
+				
+				<br>
+				
+					<p>
+					The data that returned from the API are the title of a post, the post’s score, 
+					the post’s id, URL, the number of comments, the author question, upvote ratio, subreddit, and permalink. 
+					The collected data are shown in the picture below.
+					</p>
+				
+				<br>
+				
+					<div class="img">
+					<img width="600" src="image/reddit3.jpg">
+					<div class="caption">The collected data from praw API</div>
+					</div>
+					
+				<br>
+					<p>
+					After that, the subreddits are chosen only for technology, cars, technews, Futurology, and electricvehicles, CarsAustralia, and environment. 
+					Then, the post’s id is used to collect those comments and store them in the dataframe 
+					like the picture below.
+					</p>
+					
+				<br>
+				
+					<div class="img">
+					<img width="600" src="image/reddit4.jpg">
+					<div class="caption">The reddit comments</div>
+					</div>
+				
+				<br>
+				
+					<p>
+					After the comments are gathered, the post’s id is used to connect with title, subreddit and the number of comments as shown in the picture below. 
+					The final columns are title, id, the number of comments, subreddit and comment. The final data size is around 6000 rows and 5 columns. 
+					After this step, the comments will be labeled and cleaned in the further steps. 
+					</p>
+				
+				<br>
+				
+					<div class="img">
+					<img width="600" src="image/reddit5.jpg">
+					<div class="caption">The final reddit dataframe</div>
+					</div>
+				
+				<br>
+				
+				<h3>Reddit end point and query</h3>
+				
+					<p>
+					The reddit endpoint that praw API wrapper uses is https://www.reddit.com/r/all/search.json?q=ev&limit=500. 
+					The query parameters, q and limit, are “ev” and 500 posts. The q is the search topic and the limit is the number of related posts. 
+					The API will search for all subreddit categories because “r/all” is used.
+					</p>
+			
+			</div>
+		</section>
+
+		<!-- <br> -->
+
+		<section id="Twitter" class="card">
+			<div class="arial">
+			<h3>Twitter</h3>
+			<br>
+				<p>
+				The data from twitter could be retrieved by using the twitter API. \
+				The developer account is required to use the API. In Python, there is the tweepy API wrapper, which helps to connect with the Twitter API to retrieve the data. 
+				The details are in https://www.tweepy.org/. In this project, the academic API account is used, so the API version 2 is implemented. 
+				The authorization requires the bearer token which can be generated after the twitter developer is registered.
+
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/twitter1.jpg">
+				<div class="caption">tweepy API wrappers and query parameter</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				The API version 2 can use the pagination function. In the tweepy, there is a function called paginator. This function will help request the data in a batch. The batch size can be defined in the max_results parameter. In this case, the max_results is equal to 100, which means that 100 records per page are retrieved. The used parameters are query, user_fields, tweet_fields, expansions, start_time, end_time, and max_results. 
+				The query parameter is the topic. “ev” is used as query. 
+				The user_fields parameter is the information of users.  “username, public metrics, description, and location” are used as user_fields. 
+				The tweet_fields parameter is the information of tweets. “created_at, geo, public_metrics, and text” are used as tweet_fields. 
+				The expansions parameters will provide more information about tweets. “author_id, and geo.place_id” are used as expansions. 
+				The start time is 1st December 2022, and the end time is 15th January 2023. All results are stored in the hoax_tweets list.
+
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/twitter2.jpg">
+				<div class="caption">User information of tweets</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				After that the data in hoax_tweets are iterated and stored in response. 
+				The new dictionary named user_dict is created to store information of users. 
+				There are 5 keys which are username, followers, tweets, description, and location.
+				</p>
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/twitter3.jpg">
+				<div class="caption">The process to store data from API</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				The author information will look up in the user_dict. Finally, the result list will help collect all the information, which are author id, username, author name, author description, author location, tweets, the created date, the number of retweets, the number of replies, the number of likes, the number of quotes, and the place information. 
+				All information in the result list will be converted into the dataframe as shown below. The shape of the dataframe is 12,000 rows and 18 columns.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/twitter4.jpg">
+				<div class="caption">The final twitter dataframe</div>
+				</div>
+			<br>
+			<h3>Twitter end point and query</h3>
+			<br>
+				<p>
+				The endpoint that tweepy used is https://api.twitter.com/2/tweets?ids=&tweet.fields=[created_at, geo, public_metrics,text]&expansions=[country_code,geo]&place.fields=[author_id,geo.place_id]&user.fields=[username, public_metrics, description, location]&query=ev -is:retweet lang:en&start_time=2022-12-01T00:00:00Z&end_time=2023-01-15T00:00:00Z&max_results=100. All query parameters are query, user_fields, tweet_fields, expansions, start_time, end_time, and max_results. The used values of each query are shown in the previous paragraph. 
+				</p>			
+				
+			</div>
+		</section>
+		
+		<section id="NewsAPI" class="card">
+			<div class="arial">
+			<h3>NewsAPI</h3>
+			<br>
+				<p>
+				The data from NewsAPI could be retrieved by using the NewsAPI’s API. 
+				The account is required to use the API. Once you applied to the NewsAPI, you will get the api key, which is used to retrieve the data.
+
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/newsapi1.jpg">
+				<div class="caption">tweepy API wrappers and query parameter</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				The output result is in the JSON format stored in the jsontxt2. The for loop is required to retrieve the data and transform into the dataframe. 
+				The focused attributes are title, description, source name, and the date of the news. 
+				The below picture is an example of data from the NewsAPI.
+
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/newsapi2.jpg">
+				<div class="caption">User information of tweets</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				The used text data will be the combination of title and description. 
+				After combining the columns, the data will be cleaned in the next process.
+				</p>
+				<br>
+				<h3>NewsAPI end point and query</h3>
+
+				<br>
+				
+				<p>
+				The endpoint is https://newsapi.org/v2/everything?q=ev&apiKey=. 
+				The required parameters are query and apikey. 
+				They are input as this  {'q':'ev', 'apiKey': 'key' } format.
+				</p>
+				
+				<br>
+							
+				
+			</div>
+		</section>
+		<br>
+		
+		<section id="Web Scraping" class="card">
+			<div class="arial">
+			<h3>Web Scraping</h3>
+			<br>
+			<h4>CNBC</h3>
+				<br>
+				<div class="img">
+				<img width="600" src="image/cnbc1.jpg">
+				<div class="caption">The CNBC website</div>
+				</div>
+				<br>
+				<div class="img">
+				<img width="600" src="image/google1.jpg">
+				<div class="caption">The google search code</div>
+				</div>
+				<br>
+				<p>
+				The CNBC website has the JavaScript code to protect from web scraping. Therefore, the google results were scraped with the keyword, “cnbc electric vehicle”. The used libraries are selenium and beautiful soup. 
+				The url link will be stored in the a tag within the div tag that has the class of “yuRUbf”. 
+				The number of websites per page is 10. The result will be shown as in the below picture.
+
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/google2.jpg">
+				<div class="caption">The list of google search results</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				However, the results need to be verified again because CNBC has a pro version. 
+				The sites will not be allowed to open if you don’t have a pro account. Therefore, I cross-checked again, and the result is shown below. 
+				There are 62 websites that can be scrapped.
+
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/google3.jpg">
+				<div class="caption">User information of tweets</div>
+				</div>
+				
+				<br>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/google4.jpg">
+				<div class="caption">The example of CNBC news site</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				The required information is the header and key point as shown in the picture above. 
+				The key point is stored at the li tags within the div tag with the class of the group as shown in the html structure of a key point picture. 
+				The information can be scraped with the beautiful soup. 
+				The further task is to remove the html tag. The regular expression is employed. The pattern is '<[^>]+>', which removes everything that starts with this “<” and have “>” stay behind.
+				</p>
+				<br>
+				<p>
+				Regarding the headline, the headline is stored at the h1 tags within the div tag with the class of “theArticleHeader-headline” as shown in the html structure of a headline picture. 
+				After the location of targets are identified, the for loop is implemented to collect those text data and store headlines in the text variable and key points in desc variable, respectively.
+				Both lists are converted to the dataframe.
+				</p>
+				<br>
+				<p>
+				The used text data is the combination of header and description. 
+				They are stored in the total column as shown in the picture below. 
+				The total size is 45 records.
+				</p>
+				<br>
+				<div class="img">
+				<img width="600" src="image/google5.jpg">
+				<div class="caption">The headline scraping code</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/google6.jpg">
+				<div class="caption">The html structure of a key point</div>
+				</div>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/google7.jpg">
+				<div class="caption">The html structure of a headline</div>
+				</div>
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/google8.jpg">
+				<div class="caption">The CNBC dataframe</div>
+				</div>
+
+				
+				<br>
+				
+							<br>
+			<h4>InsideEVs</h3>
+			<br>
+			
+				<div class="img">
+				<img width="600" src="image/insideev1.jpg">
+				<div class="caption">InsideEVs website</div>
+				</div>
+			
+			<br>
+			<p>
+			In the insideEVs, there are two interesting parts. 
+			The first is the headlines that are shown in the picture above. 
+			The second part is the first two paragraphs within each news. 
+			The idea to scrape this website is to collect the links and headlines first and then collect the first two paragraphs of each link. 
+			The used text data will be the headline combining with its first two paragraphs.
+			</p>
+			<br>
+			
+				<div class="img">
+				<img width="600" src="image/insideev2.jpg">
+				<div class="caption">The headlines and URLs scraping code</div>
+				</div>
+			
+			<br>
+			
+				<div class="img">
+				<img width="600" src="image/insideev3.jpg">
+				<div class="caption">The html structure of a headlines and URLs</div>
+				</div>
+			
+			<br>
+			
+			<p>
+			Regarding the headline, the headline and URL are stored at the a tags within the div tag with the class of “text-box” as shown in the html structure of a headline picture. 
+			After the location of the headline and URL target are identified, the for loop is implemented to collect those text data and URL and store headlines in the temp variable and URL in temp variable, respectively. 
+			Both lists are converted to the dataframe as shown below.
+			</p>
+			
+			<br>
+			
+				<div class="img">
+				<img width="600" src="image/insideev5.jpg">
+				<div class="caption">The InsideEVs’ headline dataframe</div>
+				</div>
+			<br>
+				<div class="img">
+				<img width="600" src="image/insideev4.jpg">
+				<div class="caption">The html structure of a paragraph</div>
+				</div>
+			<br>
+				<div class="img">
+				<img width="600" src="image/insideev6.jpg">
+				<div class="caption">The scraping paragraph code</div>
+				</div>
+			
+			<br>
+			<p>
+			The paragraph in each link is stored at the p tag within the div tag with the class of postBody description e-content' as shown in the picture above. After the target is identified, the beautiful soup library is used together with a for loop to collect the first two paragraphs in each link. 
+			After that, the data are transformed into the dataframe as shown below. 
+			The column of total is used to combine the headline and its paragraphs. The size is around 107 records with 4 columns.
+			</p>
+			
+			<br>
+				<div class="img">
+				<img width="600" src="image/insideev7.jpg">
+				<div class="caption">The InsideEVs’ dataframe</div>
+				</div>
+			<br>
+							
+				
+			</div>
+		</section>
+		<br>
+		
+			<section id="Data cleaning" class="card">
+			<div class="arial">
+			
+			<h3>Data cleaning</h3>
+			
+			<br>
+			
+				<div class="img">
+				<img width="600" src="image/process.jpg">
+				<div class="caption">Workflow of how to clean text data</div>
+				</div>
+			<br>
+				<div class="img">
+				<img width="600" src="image/text.png">
+				<div class="caption">Wordcloud of the original texts</div>
+				</div>
+			<br>
+			<h4>Contraction removing and preprocess function</h4>
+			
+			<br>
+			
+				<p> The process of cleaning text data starts with changing the contractions to the full forms. 
+				The examples of contractions are such as don’t, doesn’t, etc.  
+				The code is shown in the picture below. The dictionary of contraction is created. Then, the text data is split into each term and then it is passed to check in the dictionary to restore to the full word if there is a contraction. After that all contractions are changed to the full words, the preprocess function will help remove special characters and unwanted words such as usernames and hash tags in the tweets, html tags, and subreddits. The several regular expression patterns are implemented to remove the special characters and punctuations. The code of the preprocess function is shown below. The frequent words “ev” are changed to the “electric vehicle” because, after lemmatization and stemming, 
+				the word whose length is less than three will be removed. 
+				</p>
+			<br>
+				<div class="img">
+				<img width="600" src="image/cleaning1.jpg">
+				<div class="caption">The contraction dictionary</div>
+				</div>
+			<br>
+				<div class="img">
+				<img width="600" src="image/cleaning2.jpg">
+				<div class="caption">The process to remove the contractions and preprocess all text data</div>
+				</div>
+			<br>
+				<div class="img">
+				<img width="600" src="image/cleaning3.jpg">
+				<div class="caption">The preprocess function</div>
+				</div>
+			<br>
+				<div class="img">
+				<img width="600" src="image/cleaned_comment.png">
+				<div class="caption">The cleaned text after preprocess function</div>
+				</div>
+			<br>			
+				
+			</div>
+		</section>
+		
+			<section id="stopwords" class="card">
+			<h4>Stop words</h4>
+			<br>
+				<p> 
+				The NTLK package is used to retrieve stop words, which are unnecessary words in a sentence such as I, he, she, etc. 
+				Additional stop words are added to the list. 
+				The additional words in this case are lol, mmm, nah, yay, uhh, lmao, lmfao, uhhh, yeah, ughhhh, uhhhh, umm, and fyi. 
+				The benefit of removing the stop words is a decrease in size of a bag of words because the bag of words will contain only necessary words for sentences. 
+				This results in better accuracy for a classification model. 
+				</p>
+			<br>
+				<div class="img">
+				<img width="600" src="image/stopwords.jpg">
+				<div class="caption">The stopword functions</div>
+				</div>
+			<br>	
+			
+	
+		</section>
+		
+		</section>
+		
+			<section id="Stemming" class="card">
+			<h4>Stemming</h4>
+			<br>
+				<p> 
+				Stemming is the process of reducing a word to its stem that affixes to suffixes and prefixes or to the roots of words known as "lemmas". In this function, 
+				the Snowball stemmer from the NTLK package is employed. 
+				After performing stemming, words that have length less than 3 will be removed. After all words are processed, the data are transformed in the dataframe format, and saved as a csv file, respectively 
+				</p>
+			<br>
+				<div class="img">
+				<img width="600" src="image/stemmer.jpg">
+				<div class="caption">The stemming functions</div>
+				</div>
+			<br>
+
+				<br>
+				<div class="img">
+				<img width="600" src="image/stemming.png">
+				<div class="caption">Wordcloud of the stemmed texts</div>
+				</div>
+			<br>
+			
+	
+		</section>
+		
+		</section>
+		
+			<section id="Lemmatization" class="card">
+			<h4>Lemmatization</h4>
+			<br>
+				<p> 
+				Lemmatization is a process in natural language processing (NLP) where words are reduced to their base form, or lemma, by considering the context and morphological analysis of the word. This is in contrast to stemming, which simply removes the suffix of a word without considering the context. 
+				Lemmatization is often used to improve the accuracy of text analysis and information retrieval tasks.
+				</p>
+			<br>
+			
+			<br>
+				<p> 
+				The WordNetLemmatizer from NTLK is deployed. There are two functions. 
+				The first function named get_wordnet_pos is used to identify the part of speech for each word. 
+				Then, the part of speech is passed to the lemmatizer function to transform each word to a lemma following its part of speech. After performing lemmatization, words that have length less than 3 will be removed. 
+				The full function is shown below.
+				</p>
+			<br>
+				<div class="img">
+				<img width="600" src="image/lemmatizer.jpg">
+				<div class="caption">The lemmatization functions</div>
+				</div>
+			<br>
+
+				<br>
+				<div class="img">
+				<img width="600" src="image/lemma.png">
+				<div class="caption">Wordcloud of the lemmatized texts</div>
+				</div>
+			<br>
+			
+	
+		</section>
+		
+		</section>
+		
+			<section id="labelling" class="card">
+			<h4>Labelling</h4>
+			<br>
+				<p> 
+				All texts are categorized into 5 labels. There are “environment”, “battery”, ”cost”, “infrastructure”, and “news”. The label of environment is the text related to the environment topic such as rare earth mineral mining and impacts from battery production. The label of battery is the text explaining about the battery performance in terms of range, charging time, and battery capacity.  The label of cost is text data explaining how hard to buy EVs, its related product, and fuel cost. The label of infrastructure talks about the charging network, and charging facilities. Finally, the label of news is the discussion about the sale, car models, EVs stock, and some advertising. 1,273 data points are labeled. The labeled data are from 543 points of Reddit data, 425 points of Twitter data, 175 points of NewsAPI, and 134 points of web scraping. In terms of categories, there are 256 data points of environment, 255 points of cost, 255 points of news, and 254 points of battery. 
+				</p>
+			<br>
+			
+			<br>
+				<p> 
+				The other label is sentiment. All texts are performed the sentiment analysis by using SentimentIntensityAnalyzer from the NTLK package. There are three labels such as Positive, Negative, and Neutral. The labeled data have 711 points of positive, 371 points of negative, and 191 points of neutral.
+				</p>
+			<br>
+				<div class="img">
+				<img width="600" src="image/news.png">
+				<div class="caption">Wordcloud of the news texts</div>
+				</div>
+			<br>
+
+				<br>
+				<div class="img">
+				<img width="600" src="image/infra.png">
+				<div class="caption">Wordcloud of the infratructure texts</div>
+				</div>
+			<br>
+			
+			<br>
+
+				<br>
+				<div class="img">
+				<img width="600" src="image/battery.png">
+				<div class="caption">Wordcloud of the battery texts</div>
+				</div>
+			<br>
+			
+			<br>
+
+				<br>
+				<div class="img">
+				<img width="600" src="image/cost.png">
+				<div class="caption">Wordcloud of the cost texts</div>
+				</div>
+			<br>
+						<br>
+
+				<br>
+				<div class="img">
+				<img width="600" src="image/env.png">
+				<div class="caption">Wordcloud of the environment texts</div>
+				</div>
+			<br>
+			
+	
+		</section>
+		
+		</section>
+		
+			<section id="Merge" class="card">
+			<h4>Data Merging</h4>
+			<br>
+				<div class="img">
+				<img width="600" src="image/merging1.jpg">
+				<div class="caption">Workflow of data merging</div>
+				</div>
+			<br>
+				<p> 
+				The labeled data have around 1,270 points, so additional unlabeled data are added around 1,400 points. The total data will have around 2,700 points. All data from web scraping as well as the labeled data from Reddit and Twitter will be included in the total data, which has around 1,480 points. The other data comes from a half of unlabeled Reddit and a half of unlabeled Twitter data. The total data will have 900 points of positive, negative, and neutral sentiment. The example of the total dataframe is shown in the picture below.
+				</p>
+			<br>
+			
+			
+
+	
+		</section>
+		
+			</section>
+		
+			<section id="CountVectorizer" class="card">
+			<h4>CountVectorizer</h4>
+
+			<br>
+				<p> 
+				To create a bag of words, CountVectorizer is implemented. CounterVectorizer is a class in scikit-learn's feature_extraction module. It is used for converting a collection of text documents to a matrix of token count values, known as a bag of words. The function is commonly used as input for text classification and clustering algorithms. The CountVectorizer code chunk is shown in the picture below.
+				</p>
+			<br>
+				<div class="img">
+				<img width="600" src="image/cv.jpg">
+				<div class="caption">CountVectorizer</div>
+				</div>
+			<br>
+				<p>
+					In this project, the text data will be transformed into the list format. The parameters in the function are input, stop_words, max_df, min_df and max features. input is content because the text data are in the list format. The stopwords algorithm is used to remove unnecessary words. max_df is, when building the vocabulary, the parameter will ignore terms that have a document frequency strictly higher than the given threshold. min_df is, when building the vocabulary, the parameter will ignore terms that have a document frequency strictly lower than the given threshold. Each value of parameters will be shown in the picture above. The output results dataframe are shown in the picture below.
+				</p>
+			<br>
+				<div class="img">
+				<img width="600" src="image/cv_dtm.jpg">
+				<div class="caption">CountVectorizer document term matrix</div>
+				</div>
+			<br>
+			
+			
+
+	
+		</section>
+		
+				</section>
+		
+			</section>
+		
+			<section id="tfidf" class="card">
+			<h4>TF-IDF</h4>
+
+			<br>
+				<p>
+				TF-IDF stands for Term Frequency-Inverse Document Frequency, a numerical statistic used to determine the importance of a word in a document or corpus. It combines the frequency of a term in a document with the inverse frequency of the term in the entire corpus, used in information retrieval and text mining. The difference between CountVectorizer and TF-IDF is Inverse Document Frequency (IDF). IDF helps emphasize the low frequency word, which might be important for the context of the documents and reduce the importance of unnecessary words such as stop words. The algorithm generally computes a score for each word to signify its importance in the document and corpus. The parameters are the same as the CounterVectorizer. The code and output  dataframe are shown in the pictures below
+				</p>
+			<br>
+				<div class="img">
+				<img width="600" src="image/tfidf.jpg">
+				<div class="caption">TF-IDF</div>
+				</div>
+			<br>
+				<div class="img">
+				<img width="600" src="image/tfidf_dtm.jpg">
+				<div class="caption">TF-IDF document term matrix</div>
+				</div>
+			<br>
+			
+			
+
+	
+		</section>
+
+
+		
+		<section id="Data" class="card">
+			<b> Data </b>
+			<br>
+			<ul>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/countervectorizer.csv?d=w2be3ab5267d24cd4a50ffa2c37da6e5b&csf=1&web=1&e=CHYAMj">CounterVectorizer_dataframe_csv</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/tfidf.csv?d=w687751fe05b74e92bb5ac9c0e00f8ae2&csf=1&web=1&e=Uv5gNI">TF-IDF_dataframe_csv</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/lemma.csv?d=w0ae8e6a14b554dd998a304caff43811a&csf=1&web=1&e=RDrd9m">lemmatization_dataframe_csv</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/stemming.csv?d=wd72c0e4b9f204e0aa154c75f733af34a&csf=1&web=1&e=W6w34B">stemming_dataframe_csv</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/python%20file/clean_all_data.py?csf=1&web=1&e=iBW8TM">pyhton for text cleaning</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/python%20file/api?csf=1&web=1&e=7RDBha">python for APIs</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/data%20from%20api?csf=1&web=1&e=524K0V">Datasets of APIs</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/python%20file/webscraping?csf=1&web=1&e=LkpOuW">python for webscraping</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/data%20from%20webscraping?csf=1&web=1&e=OlWG9S">Dataset of webscraping</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/Dataset_final_version/data_total_50label_clean.csv?d=w272b96495b844b1781d8674cc2cc6fc3&csf=1&web=1&e=mrMRAQ">Final dataset</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/wc?csf=1&web=1&e=FqYqCu">Wordcloud</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/python%20file/merge_dataset_5_labeldata50percent.py?csf=1&web=1&e=RLt3IM">Merging python file</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/r/personal/tito7259_colorado_edu/Documents/info5871_project/assignment1_data/python%20file/cv_tfidf_python?csf=1&web=1&e=4kfOvO">Python file for TF-IDF and CounterVectorizer</a></li>
+				<li><a href="">etc</a></li>
+
+			</ul>
+
+			<hr>
+
+		</section>
+
+	</main>
+
+</body>
+
+<!-- Sidebar-->
+<div id="sidebar" class="card">
+	<h3>Navigation Pane</h3>
+	<!-- Navigation -->
+	<ul id="main-nav">
+		<li><a href="#Reddit">Reddit</a></li>
+		<li><a href="#Twitter">Twitter</a></li>
+		<li><a href="#NewsAPI">NewsAPI</a></li>
+		<li><a href="#Web Scraping">Web Scraping</a></li>
+		<li><a href="#Data cleaning">Data Cleaning</a></li>
+		<li><a href="#Merge">Data Merging</a></li>
+		<li><a href="#CountVectorizer">CounterVectorizer</a></li>
+		<li><a href="#tfidf">TF-IDF</a></li>
+		<li><a href="#Data">Dataset and Python Files</a></li>
+	</ul>
+	<hr />
+	<h3>About me</h3>
+	<ul>
+		<li><strong>Email:</strong> tito7259@colorado.edu</li>
+	</ul>
+</div>
