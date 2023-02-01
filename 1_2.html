@@ -174,7 +174,7 @@
 				<h3>Reddit end point and query</h3>
 				
 					<p>
-					The reddit endpoint that praw API wrapper uses is https://www.reddit.com/r/all/search.json?q=ev&limit=500. 
+					The reddit endpoint that praw API wrapper uses is https://www.reddit.com/r/all/search.json. 
 					The query parameters, q and limit, are “ev” and 500 posts. The q is the search topic and the limit is the number of related posts. 
 					The API will search for all subreddit categories because “r/all” is used.
 					</p>
@@ -253,7 +253,7 @@
 			<h3>Twitter end point and query</h3>
 			<br>
 				<p>
-				The endpoint that tweepy used is https://api.twitter.com/2/tweets?ids=&tweet.fields=[created_at, geo, public_metrics,text]&expansions=[country_code,geo]&place.fields=[author_id,geo.place_id]&user.fields=[username, public_metrics, description, location]&query=ev -is:retweet lang:en&start_time=2022-12-01T00:00:00Z&end_time=2023-01-15T00:00:00Z&max_results=100. All query parameters are query, user_fields, tweet_fields, expansions, start_time, end_time, and max_results. The used values of each query are shown in the previous paragraph. 
+				The endpoint that tweepy used is https://api.twitter.com/2/tweets. All query parameters are query, user_fields, tweet_fields, expansions, start_time, end_time, and max_results. The used values of each query are shown in the previous paragraph. 
 				</p>			
 				
 			</div>
@@ -281,7 +281,7 @@
 				<p>
 				The output result is in the JSON format stored in the jsontxt2. The for loop is required to retrieve the data and transform into the dataframe. 
 				The focused attributes are title, description, source name, and the date of the news. 
-				The below picture is an example of data from the NewsAPI.
+				The below picture is an example of data from the NewsAPI. The total data from NewsAPI are around 250 records.
 
 				</p>
 				
@@ -304,9 +304,8 @@
 				<br>
 				
 				<p>
-				The endpoint is https://newsapi.org/v2/everything?q=ev&apiKey=. 
+				The endpoint is https://newsapi.org/v2/everything. 
 				The required parameters are query and apikey. 
-				They are input as this  {'q':'ev', 'apiKey': 'key' } format.
 				</p>
 				
 				<br>
@@ -780,7 +779,7 @@
 				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EUmWKyeEWxdLgdhnTMLMb8MBvWTishwz2KEToY0i3syo3A?e=gH3h4t">Final dataset</a></li>
 				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/Ehe_swey0olFnZZPNzgUxcUBLCBmWWXJBQs98zVlX_SBxA?e=eMKgWA">Wordcloud</a></li>
 				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EdeODb1LSLlKjK9JUfJ-4OEBaTz8C9qd6Aa2zUVmF35uNg?e=5Q2TRC">Merging python file</a></li>
-				<li><a href="hhttps://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/En3072Z-0TlPqprSl_T96moBDQRrfZsvSX9XjVbO1FsOKg?e=XlH8MY">Python file for TF-IDF and CounterVectorizer</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/En3072Z-0TlPqprSl_T96moBDQRrfZsvSX9XjVbO1FsOKg?e=XlH8MY">Python file for TF-IDF and CounterVectorizer</a></li>
 				<li><a href="">etc</a></li>
 
 			</ul>
