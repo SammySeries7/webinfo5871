@@ -172,10 +172,20 @@
 				<br>
 				
 				<h3>Reddit end point and query</h3>
+				<br>
+				
+					<div class="img">
+					<img width="600" src="image/reddit_api.jpg">
+					<div class="caption">The reddit's API</div>
+					</div>
+				
+				<br>
 				
 					<p>
+					<strong>https://www.reddit.com/r/all/search.json?q=ev&limit=500</strong><br>
+					<br>
 					The reddit endpoint that praw API wrapper uses is https://www.reddit.com/r/all/search.json. 
-					The query parameters are q and limit. The values of each query are “ev” and 500 posts. The q is the search topic and the limit is the number of related posts. 
+					The query parameters are q and limit. The value of query is “ev” and the value of limit is 500 posts. The q is the search topic and the limit is the number of related posts. 
 					The API will search for all subreddit categories because “r/all” is used.
 					</p>
 			
@@ -252,8 +262,17 @@
 			<br>
 			<h3>Twitter end point and query</h3>
 			<br>
+				
+				<div class="img">
+				<img width="600" src="image/twitter_api.jpg">
+				<div class="caption">Twitter's API results</div>
+				</div>
+				
 				<p>
-				The endpoint that tweepy used is https://api.twitter.com/2/tweets. All query parameters are query, user_fields, tweet_fields, expansions, start_time, end_time, and max_results. The used values of each query are shown in the previous paragraph. 
+				<strong>https://api.twitter.com/2/tweets?ids=&tweet.fields=[created_at, geo, public_metrics, text]&expansions=[country_code,geo]&place.fields=[author_id,geo.place_id]&user.fields=[username, public_metrics, description, location]&query=ev -is:retweet lang:en&start_time=2022-12-01T00:00:00Z&end_time=2023-01-15T00:00:00Z&max_results=100 <br> 
+				The endpoint that tweepy used is https://api.twitter.com/2/tweets </strong> <br>
+				<br>
+				All query parameters are query, user_fields, tweet_fields, expansions, start_time, end_time, and max_results. The query is "ev". The used values of each parameter are shown in the previous paragraph. 
 				</p>			
 				
 			</div>
@@ -303,9 +322,18 @@
 
 				<br>
 				
+				<div class="img">
+				<img width="600" src="image/newsapi_api.jpg">
+				<div class="caption">NewsAPI's results</div>
+				</div>
+				
+				<br>
+				
 				<p>
+				<strong>https://newsapi.org/v2/everything?q=&apiKey=</strong><br>
+				<br>
 				The endpoint is https://newsapi.org/v2/everything. 
-				The required parameters are query and apikey. 
+				The required parameters are query and apikey. The query is "ev" and apikey is filled following the user account. The result will be showed in the JSON format.
 				</p>
 				
 				<br>
