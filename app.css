@@ -163,3 +163,14 @@ h1 {
   padding: 20px;
   margin-bottom: 10px;
 }
+
+.caption200 {
+  width: 200px;
+  text-align: center;
+}
+
+.img200 {
+  display: block;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
