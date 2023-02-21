@@ -1,0 +1,765 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> INFO 5871 project </title>
+	<link rel="stylesheet" href="app.css">
+</head>
+
+<nav class="menu-bar">
+	<h1 class="logo">Tittiwat<span>T.</span></h1>
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Project <i class="fas fa-caret-down"></i></a>
+
+			<div class="dropdown-menu">
+				<ul>
+					<!--<li><a href="#">Pricing</a></li>-->
+					<!--<li><a href="#">Portfolio</a></li>-->
+					<li>
+						<a href="#">Module-1 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Introduction</a></li>
+								<li><a href="1_2.html">Data</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-2 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="#">Module-1</a></li>
+								<li><a href="2_2">Clustering</a></li>
+								<li><a href="2_3.html">ARM</a></li>
+								<li><a href="2_4">LDA</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-3 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="#">Module-1</a></li>
+								<li><a href="#">Module-2</a></li>
+								<li><a href="#">Module-3</a></li>
+								<li><a href="#">Module-4</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-4 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="#">Module-1</a></li>
+								<li><a href="#">Module-2</a></li>
+								<li><a href="#">Module-3</a></li>
+								<li><a href="#">Module-4</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li><a href="#">FAQ</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="#">Blog</a>
+		</li>
+		<li><a href="#">Contact us</a></li>
+	</ul>
+</nav>
+
+<br>
+
+<body>
+
+	<main id="main">
+		<h1>Clustering </h1>
+		<br>
+
+		<section id="pt1" class="card">
+			<div class="arial">
+				<h2>What clustering does and how to use it to gain information</h2>
+				<br>
+				<p>
+					Clustering is an unsupervised learning technique that groups similar data points together based on their similarity or distance from one another. The goal of clustering is to divide the data into meaningful subgroups, or clusters, such that data points within a cluster are more similar to each other than to data points in other clusters.
+				</p>
+				<br>
+				<p>
+					This technique can be used to identify the main topics and subtopics within the unstructured dataset like texts or tweets. It also helps to reduce the complexity of the words by aggregating the dataset into several topics. The technique also helps to reveal the opaque relationships between words and generate insight in the data.
+				</p>
+				<br>
+				<p>
+					In addition, several clustering algorithms are compared to each other in order to understand pros and cons in each method. The methods are K-Means clustering, and Hierarchical clustering. There is no exact solution on how to select methods, so it is a good chance to explore and experience these techniques with this text dataset. After the clusters are assigned into the data, the common word extraction will be applied to understand the main topics in each cluster and assess how well the clustering algorithms are performed. Besides, a visualization such as Silhouette analysis plot and dendrogram will be employed to gain insight into each cluster from the methods.
+				</p>
+		</section>
+
+		<!-- <br> -->
+
+		<section id="pt2" class="card">
+			<div class="arial">
+			<h2>Data Preparation</h2>
+			<br>
+			<h3> K-Means Model </h3>
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/df_r.jpg">
+			<div class="caption">dataset</div>
+			</div>
+			
+			<br>
+				<p>
+					The data cleaned in the previous chapter was stored in the csv format. The lemmatized text data was normalized by using TFIDF. The parameters were shown in the pictures below.
+				</p>
+				
+				<br>
+				
+				<div class="img200">
+				<img width="200" src="image/assignment2/part1/tf1.jpg">
+				<div class="caption200">TF-IDF</div>
+				</div>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment2/part1/tfidf_dtm.jpg">
+				<div class="caption">TF-IDF document-term matrix</div>
+				</div>
+				
+				<br>
+				
+				<p>
+					After that, a document-term matrix was created by TF-IDF and then converted to a dataframe like in the picture above. The reason to use TFIDF is to normalize the data. If the normalization is not employed, the high frequency words will have an impact on the model.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment2/part1/runkmean.jpg">
+				<div class="caption">run_KMeans function</div>
+				</div>
+				
+				<br>
+				
+				<p>
+					The run_kmeans function was created to generate the K-Means model. The function will create the several K-Means models from 1 to max_k. The model will be stored in the dictionary named  kmeans_results. The model will predict the cluster label for data and then the words in each cluster will be extracted in the get_top_features_cluster.
+				</p>
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment2/part1/kmeans_result.jpg">
+				<div class="caption">The K-Means model</div>
+				</div>
+				
+				<br>
+				
+				<p>
+					 According to the picture above, the get_top_features_cluster function will help to collect the word from each cluster of each model. The function will start from collecting the index of the data from each label. Then, the score of each word is calculated from averaging by a column. [TF-IDF Document-Term Matrix] After that, the top 13 highest score words will be collected and plotted as in the picture below.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment2/part1/1_25/24png.png">
+				<div class="caption">The K-Means model</div>
+				</div>
+				
+				<br>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment2/part1/avg_score_word1.jpg">
+				<div class="caption">The average score of words</div>
+				</div>
+				
+				<br>
+				
+				<p>
+					In order to find the optimum k-value for the K-Means model, the elbow plot against k-value and silhouette score plot against k-value are employed. The functions to generate both plots are shown below. Both plots are shown in the result section.   
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment2/part1/elbow.jpg">
+				<div class="caption">The elbow plot</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment2/part1/silhoeete.jpg">
+				<div class="caption">The silhouette score</div>
+				</div>
+				
+				<br>
+				
+			<h3> Hclust model </h3>
+				<br>
+				
+				<p>
+					The data cleaned in the previous chapter was stored in the csv format. The lemmatized text data was converted to the bag of words by the DocumentTermMatrix function in R and then normalized by dividing with the total words in each document. The parameters and normalized term-document matrix were shown in the pictures below.
+				</p>
+				
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/df_r.jpg">
+			<div class="caption">dataset</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/dtm_normdtm_R.jpg">
+			<div class="caption">Document-Term Matrix and Term-Document Matrix</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/norm_func_R.jpg">
+			<div class="caption">Normalization</div>
+			</div>
+			
+			<p>
+				After that, the normalized document-term matrix (DTM) is converted into the matrix format. Then, it was passed into the cosine similarity function to calculate the distance between clusters. Finally, the distance value is passed in the Hclust function to calculate the hierarchical clustering model like in the picture below.
+			</p>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/dist_R.jpg">
+			<div class="caption">dist.cosine function</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/hclust_R.jpg">
+			<div class="caption">Hclust function</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			In order to assess the cluster performance, the wordcloud package is implemented. Before using the wordcloud package , the label is input into the DTM dataframe. Then, the dataframe is subset following the label and the words’ score is sorted. Only the top 100 highest score words in each group will be selected to plot in the wordcloud package like in the picture below.  
+			</p>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/wc.jpg">
+			<div class="caption">wordcloud</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/wc_r.jpg">
+			<div class="caption">wordcloud function</div>
+			</div>
+			
+			<br>
+
+			</div>
+		</section>
+		
+		<section id="NewsAPI" class="card">
+			<div class="arial">
+
+			
+			<h2>Results and Discussion</h2>
+			<br>
+			<h3>K-Means</h3>
+			<br>
+			<p>
+			In this project, several clusters have been tried in the K-Means model, which are 5, 10, 25 and 50. These numbers have been selected from the elbow plot and Silhouette score.
+			</p>
+			
+			<br>
+			
+			<p>
+			The elbow plot of K-Means is the plot between the sum of squared distance between each point and the centroid in a cluster and the number of clusters. By visualizing the mentioned distance as a function of the number of clusters, the elbow plot can help practitioners to choose the number of clusters that balances the trade-off between having too few clusters (underfitting) and too many clusters (overfitting).
+			</p>
+			
+			<br>
+			
+			<p>
+			The Silhouette score is a measure of the quality of the solution obtained from a clustering algorithm, such as K-Means. It provides a measure of how well each sample has been assigned to its own cluster compared to other clusters. The Silhouette score ranges from -1 to 1, where a higher score indicates a better-quality clustering.
+			</p>
+			
+			<br>
+			
+			<p>
+			The Silhouette score is computed for each sample by comparing the similarity of a sample to its own cluster compared to other clusters. Specifically, for each sample, two values are computed: the average similarity of the sample to all other samples in its own cluster, and the average similarity of the sample to all other samples in the nearest neighboring cluster. The Silhouette score for a sample is then given by the difference between these two values, divided by the greater of the two values. The Silhouette score is plotted with the number of clusters as the same as the elbow plot, so it can help interpreters to select the suitable cluster number for the model.
+			</p>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/silho.jpg">
+			<div class="caption">The Silhouette method</div>
+			</div>
+			
+			<br>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/elbow plot.png">
+			<div class="caption">The elbow plot</div>
+			</div>
+			
+			<br>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/silhoette score.png">
+			<div class="caption">The Silhouette score</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			According to the plots, even 50 clusters cannot make both graphs stable. The result may be that the words in each cluster number have a very close distance in the vector space. This results in a nuance of word meaning in some clusters. Therefore, it is hard to differentiate clearly in the higher number of clusters. To illustrate more clearly, the 13 topmost common words in each cluster are plotted between the k=5, k=10, and k=25 to help identify the topic models and the meaning of the group of words in the cluster.
+			</p>
+			<br>
+			<h3>The case of k=5</h3>
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_5/0png.png">
+			<div class="caption">The 1st cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_5/1png.png">
+			<div class="caption">The 2nd cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_5/2png.png">
+			<div class="caption">The 3rd cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_5/3png.png">
+			<div class="caption">The 4th cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_5/4png.png">
+			<div class="caption">The 5th cluster</div>
+			</div>
+			<br>
+			<p>
+			The k=5 is inspired from the dendrogram from the hclust package. The details will be discussed in the latter section. According to the case of the 5-clusters, the first cluster will be about the general words of electric vehicle news. “Company”, “Say”, and “Year” are good indicators of EVs’ news. Most news is about new models of electric vehicles, and the new factories in different locations around the world. The second cluster will be about the environment concerns about the battery components. Most news is about lithium mining and how to recycle broken EVs’ batteries. Both issues affect the environment and cause pollution. The third topic is about the charging infrastructure which includes charging facilities and the number of the charging stations. The evident words are “station”,”trip”,”mile”, and “home”. In the case of “home”, most EVs need to have a private garage or personal parkway, in which the charging facility can be installed. The fourth topic is about EVs’ price. Many people know that most EVs are expensive compared to gas-powered cars. The outstanding words in this topic are “afford”, “buy”, and “price”. The last cluster is about Elon Musk. Elon Musk is a billionaire entrepreneur and businessman who co-founded PayPal and Tesla Motors. The main issue in this topic is about the Tesla stock price and his investment in Twitter. It is also about Tesla's new model.
+			</p>
+			<br>
+			
+			<h3>The case of k=10</h3>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/0png.png">
+			<div class="caption">The 1st cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/1png.png">
+			<div class="caption">The 2nd cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/2png.png">
+			<div class="caption">The 3rd cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/3png.png">
+			<div class="caption">The 4th cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/4png.png">
+			<div class="caption">The 5th cluster</div>
+			</div>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/5png.png">
+			<div class="caption">The 6th cluster</div>
+			</div>
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/6png.png">
+			<div class="caption">The 7th cluster</div>
+			</div>
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/7png.png">
+			<div class="caption">The 8th cluster</div>
+			</div>
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/8png.png">
+			<div class="caption">The 9th cluster</div>
+			</div>
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_10/9png.png">
+			<div class="caption">The 10th cluster</div>
+			</div>
+			<br>
+			
+			<p>
+			The k=10 is inspired from the Silhouette score in the above graph. According to the case of the 10-clusters, the first cluster will be about the impact of electricity generation. The outstanding words are about “fuel”, “environment”, “electricity” and “grid”. The main idea is that many people concern about a lack of electricity in many big cities such as Los Angeles, San Francisco, and New York. If many people move to EV’s car, there will be a problem of blackout in the cities. To solve this problem, the fossil fuel is used to generate the electricity, which can cause air pollution and environmental concerns. The second cluster is the supercharger of Tesla. The evident words are “drive”, “tesla”, and “charge”. Many people agree that the Tesla’s supercharger network is superior to other rivals in terms of the shorter charging time and higher ampere. The third topic is the battery efficiency. Many consumers complain that EVs are not suitable for the cold weather area such as Wisconsin because the range of EVs will reduce. The main reason is that a battery need to be heated before it can continue to charge in the cold weather. The evident words are “cold”, “weather”, “charge”, and “battery”. The fourth topic is about the price between internal combustion cars (ICE) and EVs. The price of EVs is harder to access than the gas-powered car. The outstanding words are “afford”, “ice”, and ‘’electric car’’. The fifth topic is EV’s news. The news is related to sale, production, and new EVs’ models. The words indicating the topic are “sale”, “year”, “production” and “plan”. The sixth topic is an electric bicycle. The most outstanding words are “bike”, “electric”, and “ride”. The seventh topic is about Elon Musk. The keywords are “tesla”, “stock”, and “twitter”. The eighth topic is about the cost again. It is similar to the fourth topic. The main keywords are “charge”, “afford”, and “buy”. The nineth cluster is about the environmental impact of battery. It is related to how to produce and recycle EVs’ batteries. The indicators are “lithium”, “material”, and “recycle”. The first topic and this topic are linked by the idea of environment, but they are shown in different aspects. The last topic is about charging stations. Consumers are concerned about the few charging stations in some locations. The consumers need to have private garages  to charge their EVs. The indicators are “charge”, “home”, and “mile”. This topic is similar to the second topic. Both of them talk about the charging station. However, the second topic focuses on Tesla's charging network. 
+			</p>
+				
+			<p>
+			When the case of k=5 and case of k=10 are compared together, the main topic is the same. However, in the case of k=10, the subtopics tend to be more varied than that of the case of k=5. For example, in the case of a charging station, the case of k=10 can be more specific into the supercharger of the tesla, which is the subtopic of the charging station
+			</p>
+			<br>
+			<h3>The case of k=25</h3>
+			
+			<p>
+			The k=25 is inspired from the Silhouette score in the above graph. In this case, some of the main topics and its subtopics will be discussed.
+			</p>
+			<br>
+			<h4>The topic of EVs’ news</h4>
+			
+			<br>	
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/0png.png">
+			<div class="caption">The 1th cluster</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/14png.png">
+			<div class="caption">The 15th cluster</div>
+			</div>
+			<br>
+			
+			<p>
+			In the cluster of 1 and 15, the main topic is the general news of electric vehicles. The first talks about the production of the EVs’ company. The second cluster talks about EVs’ model and sale. 
+			</p>
+			<br>
+			<h4>The topic of price</h4>
+			
+			<br>	
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/3png.png">
+			<div class="caption">The 4th cluster</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/4png.png">
+			<div class="caption">The 5th cluster</div>
+			</div>
+			<br>
+			
+			<p>
+			In the cluster of 4 and 5, the main topic is the price of the EVs. The first talks about the comparison of EVs and gas-powered cars. EVs look too expensive when they are compared with ICE cars. The second cluster talks about the price of EVs. It may be especially in the Tesla products.
+			</p>
+			<br>
+			<h4>The topic of batteries</h4>
+			
+			<br>	
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/6png.png">
+			<div class="caption">The 7th cluster</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/9png.png">
+			<div class="caption">The 10th cluster</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/12png.png">
+			<div class="caption">The 13th cluster</div>
+			</div>
+			<br>
+			
+			<p>
+				In the cluster of 7, 10, and 12, the main topic is about the EV’s battery. The first talks about the impact of the cold weather on the EV’s range. Its range will be reduced in the cold weather. The second talks about the range anxiety of the EVs, especially the long trip. The main problem comes from the limit of the battery capacity. The last one informs about the range of EVs in daily use. Many people think that EVs’ range is sufficient on a daily basis and need to have a private garage for the home charging facility.
+			</p>
+			<br>
+			<h4>The topic of environment</h4>
+			
+			<br>	
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/8png.png">
+			<div class="caption">The 9th cluster</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/10png.png">
+			<div class="caption">The 11th cluster</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/1_25/13png.png">
+			<div class="caption">The 14th cluster</div>
+			</div>
+			<br>
+			
+			
+			<p>
+				In the cluster of 9, 11, and 14, the main topic is about the environmental impact from the electric vehicles. The first talks about the electricity generation from fossil fuel. This can cause a pollution impact on the environment. The second topic informs the problem of battery recycling. Some components in a battery are hard to disassemble and recycle. In addition, some of them are toxic to the environment. The last picture informs us that lithium mining is not good for the environment. 
+			</p>
+			
+			<br>
+			
+			<p>
+				Its range will be reduced in the cold weather. The second talks about the range anxiety of the EVs, especially the long trip. The main problem comes from the limit of the battery capacity. The last one informs about the range of EVs in daily use. Many people think that EVs’ range is sufficient on a daily basis and need to have a private garage for the home charging facility.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/k=25.png">
+			<div class="caption">The Sillhouette Analysis for K=25</div>
+			</div>
+			<br>
+			
+			
+			<p>
+				In the case of k=25, silhouette score plot informs that there are many clusters that cannot differentiate from each other, which can be seen from the cluster’s score that is below zero. This results in many clusters which use the similar set of words under the same topics. The examples are shown above in the case of news, price, batteries, and environment topics. Almost all topics have several clusters. 
+			</p>
+			<br>
+			
+			<p>
+				A main topic will have more subtopics as the higher value of k is used in the K-Mean model. In this dataset, much evidence such as the plot of the common words and silhouette score plot shows that the k-value more than 5 tends to have duplicated topics in several clusters as shown in the examples above. This situation can be seen from the silhouette analysis plot. The more k-value is used, the more clusters tend to have the repeated topics, which is seen from the below-zero cluster score in the plot. In addition, when the most common words are extracted from the different K-Mean models, it is noticeable that the more k-value model tends to have the similar word patterns in many clusters.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/silhoette score.png">
+			<div class="caption">The Silhoette Score</div>
+			</div>
+			<br>
+			
+			<p>
+			According to the plot above, the most suitable k for the dataset cannot be obtained from the plot. The range of the scores is not much different even if k is 50. The reason is that each different topic is very close in a vector space.  When the labeled data points are plotted in the 3-axis by using the principle component analysis (PCA), it is obvious that the k-value more than 5 cannot separate each cluster efficiently. The plots for k=5,k=10,and k=25 are plotted in the pictures below.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/5_cluster.png">
+			<div class="caption">3D-plot K=5</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/10_cluster.png">
+			<div class="caption">3D-plot K=10</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/25_cluster.png">
+			<div class="caption">3D-plot K=25</div>
+			</div>
+			<br>
+			
+			<p>
+			Therefore, the way to choose optimal k is to extract the most common words to perform analysis together with the Silhouette score and the elbow method. In this dataset, the k=5 is preferable because it can obviously classify the topics, which are EVs’ news, EV’s price, charging infrastructure, environmental impacts, and Elon Musk topics. 
+			</p>
+			
+			<br>
+			<h3> Hclust </h3>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/k_5_norm.png">
+			<div class="caption">The dendrogram k=5</div>
+			</div>
+			<br>
+			
+			<p>
+			According to the picture above, the hierarchical clustering results suggest that k-value which is equal to 5 is the suitable number. The reason is that the five clusters can differentiate each group obviously. The number more than 5 cannot discriminate between each cluster following the plot above. However, after using wordcloud to illustrate words, the words in the first cluster are ambiguous compared to the other clusters. The example of words in each cluster is shown in the picture below.
+			</p>
+			
+			<br>
+			<h4> Cluster 1 </h4>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/cluster_1.png">
+			<div class="caption">The 1st cluster</div>
+			</div>
+			<br>
+					
+			<br>
+			<h4> Cluster 2 </h4>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/cluster_2.png">
+			<div class="caption">The 2nd cluster</div>
+			</div>
+			<br>
+			
+			<br>
+			<h4> Cluster 3 </h4>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/cluster_3.png">
+			<div class="caption">The 3rd cluster</div>
+			</div>
+			<br>
+			
+			
+			<br>
+			<h4> Cluster 4 </h4>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/cluster_4.png">
+			<div class="caption">The 4th cluster</div>
+			</div>
+			<br>
+			
+			<br>
+			<h4> Cluster 5 </h4>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/cluster_5.png">
+			<div class="caption">The 5th cluster</div>
+			</div>
+			<br>
+			
+			<p>
+				According to the picture above, the first cluster includes several topics, which are environment, EV’s price, charging station, and EV’s news such as EVs’ models. The main reason is that the first cluster contains more than 50% of the total data, resulting in many topics inside the cluster. The second cluster is about Elon Musk. This includes Tesla's news, its stock price, and Elon’s investment. The third cluster indicates the general news of EVs. The outstanding indicators are “company”, and “brand”. The fourth cluster is about the battery’s matter. It covers several subtopics like a recycle problem, lithium mining and range. The last cluster is about the charging station and facilities. The words indicating the topic are “range”, “station”, “time”, and “home”. 
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/hclust_prop.jpg">
+			<div class="caption">The cluster distribution</div>
+			</div>
+			<br>
+			
+	
+
+
+			</div>
+		</section>
+		<br>
+		
+		
+		<section id="pt4" class="card">
+		<div class="arial">
+		<h2>Conclusions. What did you learn that pertains to your topic?</h2>
+		<br>
+		<p>
+		According to the results, K-Means tends to outperform hierarchical clustering. The way to assess the performance is to extract the words from each cluster to determine the main topic, which K-Means results are easily understandable. Regarding the number of clusters for the K-Means, both Silhouette score and elbow method remain unstable in spite of high k-value around 50. In addition, the Silhouette scores from k=5 to k=50 are not much different. Therefore, the word extraction, Silhouette analysis, and score must be considered selecting the suitable number of clusters together, which k=5 is proper in this dataset. In hierarchical clustering, the k=5 is still preferable. According to the dendrogram, the k more than 5 is not likely to separate the topics between clusters. The main five topics are EVs’ news, EV’s price, charging infrastructure, environmental impacts, and Elon Musk. 
+		</p>
+		<br>
+		
+		
+
+		</div>
+	</section>
+		
+
+
+		
+		<section id="Data" class="card">
+			<b> Data </b>
+			<br>
+			<ul>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EVKr4yvSZ9RMpQ_6LDfablsBOxf9oUdaIfbY8SMtTPnd8Q?e=2xHwJU">CounterVectorizer_dataframe_csv</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/Ef5Rd2i3BZJOu1rJwOAPiuIByslSDeZgxJGixnGQLDMuIQ?e=hG82ch">TF-IDF_dataframe_csv</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EaHm6ApVS9lNmKMEyv9DgRoBjeK_nMBkF4LgUYtn8pdFwg?e=Xwqddg">lemmatization_dataframe_csv</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EUsOLNcgnwpOoVTHX3M680oB4b4EoCoSS5zvV_W0_bMhJA?e=BiKPRg">stemming_dataframe_csv</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/ERdRtE6l5uZAvXgnF1WQjeYBmUaLL9-l-wiTamq1-sL52Q?e=xdWhGb">pyhton for text cleaning</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/ElnvYdd6UTFJu0ocdhj2xQsBLAg78t6uNnb3y_axfoT8Iw?e=5BOmYv">python for APIs</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/Egsd3XUeUIRMqMFYU5M8H6IBmmXea19rlIKvFH05ht5flg?e=O7sTmh">Datasets of APIs</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/EsNByU6yoZ9DqEncJv-Kba8BmMdx6NKktZoTmz124t9Qlw?e=28Sfsf">python for webscraping</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/Ek5Zup2uyytAnqd8G-FkV-UBY07q27SPdc4wZ3TNItHNfg?e=ccKR7i">Dataset of webscraping</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EUmWKyeEWxdLgdhnTMLMb8MBvWTishwz2KEToY0i3syo3A?e=gH3h4t">Final dataset</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/Ehe_swey0olFnZZPNzgUxcUBLCBmWWXJBQs98zVlX_SBxA?e=eMKgWA">Wordcloud</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EdeODb1LSLlKjK9JUfJ-4OEBaTz8C9qd6Aa2zUVmF35uNg?e=5Q2TRC">Merging python file</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/En3072Z-0TlPqprSl_T96moBDQRrfZsvSX9XjVbO1FsOKg?e=XlH8MY">Python file for TF-IDF and CounterVectorizer</a></li>
+				<li><a href="">etc</a></li>
+
+			</ul>
+
+			<hr>
+
+		</section>
+
+	</main>
+
+</body>
+
+<!-- Sidebar-->
+<div id="sidebar" class="card">
+	<h3>Navigation Pane</h3>
+	<!-- Navigation -->
+	<ul id="main-nav">
+		<li><a href="#Reddit">Reddit</a></li>
+		<li><a href="#Twitter">Twitter</a></li>
+		<li><a href="#NewsAPI">NewsAPI</a></li>
+		<li><a href="#Web Scraping">Web Scraping</a></li>
+		<li><a href="#Data cleaning">Data Cleaning</a></li>
+		<li><a href="#Merge">Data Merging</a></li>
+		<li><a href="#CountVectorizer">CounterVectorizer</a></li>
+		<li><a href="#tfidf">TF-IDF</a></li>
+		<li><a href="#Data">Dataset and Python Files</a></li>
+	</ul>
+	<hr />
+	<h3>About me</h3>
+	<ul>
+		<li><strong>Email:</strong> tito7259@colorado.edu</li>
+	</ul>
+</div>
