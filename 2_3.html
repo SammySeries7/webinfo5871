@@ -33,7 +33,7 @@
 						<div class="dropdown-menu-1">
 							<ul>
 								<li><a href="#">Module-1</a></li>
-								<li><a href="2_2">Clustering</a></li>
+								<li><a href="2_2.html">Clustering</a></li>
 								<li><a href="2_3.html">ARM</a></li>
 								<li><a href="2_4.html">LDA</a></li>
 							</ul>
@@ -84,7 +84,7 @@
 		<h1>Association Rules Mining</h1>
 		<br>
 
-		<section id="Reddit" class="card">
+		<section id="pt1" class="card">
 			<div class="arial">
 				<h2>What ARM does and how to use it to gain information</h2>
 				<br>
@@ -99,9 +99,9 @@
 
 		<!-- <br> -->
 
-		<section id="Twitter" class="card">
+		<section id="pt2" class="card">
 			<div class="arial">
-			<h3>Data Preparation</h3>
+			<h2>Data Preparation</h2>
 			<br>
 				<p>
 					The data cleaned in the previous chapter was stored in the csv format. The lemmatized text data was tokenized and store in the single dataframe as shown in the picture below. The TID is the transaction id. The reason to format the single format because the basket format has a problem with the text unicode when the data are saved in the csv file.
@@ -218,11 +218,11 @@
 			</div>
 		</section>
 		
-		<section id="NewsAPI" class="card">
+		<section id="pt3" class="card">
 			<div class="arial">
 
 			
-			<h3>Results and Discussion</h3>
+			<h2>Results and Discussion</h2>
 			
 			<br>
 			<div class="img">
@@ -240,7 +240,7 @@
 			<p>
 				The used measures are support, confidence, and lift. According to the graph above, if the support level is too high, there are no more 80% confidence level rules. Therefore, the suitable support can be 0.8% and 1%. However, after the rules are used to create the network, the 0.8% support network has a lot of unnecessary rules such as good&#8594;event. Therefore, 1% support is chosen for the model. The confidence level is set at 0.40 to limit the number of rules and remove the unimportant rules. The lift is chosen at more than 1 because the greater lift values (>1) indicate stronger associations between items, and they depend on one another. After the thresholds are applied to the dataset and the redundant rules are removed, the number of rules is around 400 rules.
 			</p>
-			
+			<br>
 			<h4>Top 15 support</h4>
 			
 			<p>
@@ -352,6 +352,21 @@
 		</section>
 		<br>
 		
+		<section id="pt4" class="card">
+		<div class="arial">
+
+		
+		<h3>Conclusions</h3>
+		
+		<p>
+		Those two graph methods, D3 network and arulesViz, give similar topics for this dataset. They are electric vehicle, charge, tesla, environment, and battery. The latter method is easier to understand how many topics do have in this dataset. However, the first graph method will be better if the contexts of topics are required to understand because there are several LHS that contains more than 1. The measures and their thresholds play important roles to make graph visualization effective. Among the measures, lift is more reliable. Several number thresholds and measures must be tried with the model to understand pros and cons of the information. Besides, there are several topics such as (electric, vehicle) and (battery, charge), which are close to each other. How close of the topics in this dataset from the association rules mining shows similarly to the previous methods, k-means, and hierarchical clustering.
+		</p>
+		<br>
+	
+
+		</div>
+	</section>
+		
 		
 
 
@@ -360,24 +375,14 @@
 			<b> Data </b>
 			<br>
 			<ul>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EVKr4yvSZ9RMpQ_6LDfablsBOxf9oUdaIfbY8SMtTPnd8Q?e=2xHwJU">CounterVectorizer_dataframe_csv</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/Ef5Rd2i3BZJOu1rJwOAPiuIByslSDeZgxJGixnGQLDMuIQ?e=hG82ch">TF-IDF_dataframe_csv</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EaHm6ApVS9lNmKMEyv9DgRoBjeK_nMBkF4LgUYtn8pdFwg?e=Xwqddg">lemmatization_dataframe_csv</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EUsOLNcgnwpOoVTHX3M680oB4b4EoCoSS5zvV_W0_bMhJA?e=BiKPRg">stemming_dataframe_csv</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/ERdRtE6l5uZAvXgnF1WQjeYBmUaLL9-l-wiTamq1-sL52Q?e=xdWhGb">pyhton for text cleaning</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/ElnvYdd6UTFJu0ocdhj2xQsBLAg78t6uNnb3y_axfoT8Iw?e=5BOmYv">python for APIs</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/Egsd3XUeUIRMqMFYU5M8H6IBmmXea19rlIKvFH05ht5flg?e=O7sTmh">Datasets of APIs</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/EsNByU6yoZ9DqEncJv-Kba8BmMdx6NKktZoTmz124t9Qlw?e=28Sfsf">python for webscraping</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/Ek5Zup2uyytAnqd8G-FkV-UBY07q27SPdc4wZ3TNItHNfg?e=ccKR7i">Dataset of webscraping</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/EUmWKyeEWxdLgdhnTMLMb8MBvWTishwz2KEToY0i3syo3A?e=gH3h4t">Final dataset</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/Ehe_swey0olFnZZPNzgUxcUBLCBmWWXJBQs98zVlX_SBxA?e=eMKgWA">Wordcloud</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EdeODb1LSLlKjK9JUfJ-4OEBaTz8C9qd6Aa2zUVmF35uNg?e=5Q2TRC">Merging python file</a></li>
-				<li><a href="https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/tito7259_colorado_edu/En3072Z-0TlPqprSl_T96moBDQRrfZsvSX9XjVbO1FsOKg?e=XlH8MY">Python file for TF-IDF and CounterVectorizer</a></li>
-				<li><a href="">etc</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/Ed3rCZHFtVlArwIFIQEDDcUBeLEcjfwUjrTzCNR5m4dGAw?e=VJ2JcC">ARM_R_files</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/ESbOzSIC-HVMn8xMBzAptDIB-j6kPQraj_DMr0ksx1jdhQ?e=l1CLvi">ArulesViz</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EWrvQh6nq2RBvLPtFQxstzkBaUYNVtyemW7yiiLWnuk7Vw?e=f5S7g7">D3 network</a></li>
+
 
 			</ul>
 
-			<hr>
+
 
 		</section>
 
@@ -390,15 +395,11 @@
 	<h3>Navigation Pane</h3>
 	<!-- Navigation -->
 	<ul id="main-nav">
-		<li><a href="#Reddit">Reddit</a></li>
-		<li><a href="#Twitter">Twitter</a></li>
-		<li><a href="#NewsAPI">NewsAPI</a></li>
-		<li><a href="#Web Scraping">Web Scraping</a></li>
-		<li><a href="#Data cleaning">Data Cleaning</a></li>
-		<li><a href="#Merge">Data Merging</a></li>
-		<li><a href="#CountVectorizer">CounterVectorizer</a></li>
-		<li><a href="#tfidf">TF-IDF</a></li>
-		<li><a href="#Data">Dataset and Python Files</a></li>
+		<li><a href="#pt1">What ARM does and how to use it to gain information</a></li>
+		<li><a href="#pt2">Data Preparation</a></li>
+		<li><a href="#pt3">Results and Discussion</a></li>
+		<li><a href="#pt4">Conclusion</a></li>
+		<li><a href="#Data">Data</a></li>
 	</ul>
 	<hr />
 	<h3>About me</h3>
