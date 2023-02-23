@@ -146,6 +146,22 @@
 				<p>
 					Both news and users’ opinions are collected from Reddit, Twitter, NewsAPI, CNBC and InsideEVs. The first two sources are about users’ opinion and discussion. NewsAPI, CNBC and InsideEvs are the news and technology in EVs. Reddit, Twitter, NewsAPI data are collected via the APIs, whereas the two latter sources are from web scraping. After all data has already been collected, they are classified into five labels according to the problems of EVs in the previous paragraphs. The labels are environment, news, battery, infrastructure, and cost. The label of environment talks about the impact of EVs on the environment; the label of news explains the information and technology in EVs; the label of battery is the battery capacity, charging time, and the battery’s efficiency; the label of infrastructure is the charging networks and its facilities; the last one is the cost of the EVs and electricity fuels in different locations. All special characters are removed from the text data and transformed to lemmas by lemmatization and stemming techniques. After that , the data is used to create a bag of words by the CounterVectorizer package, which helps to remove the sequences between terms in documents. However, CounterVectorizer cannot be used to measure the importance of terms among all documents. So, Term Frequency-Inverse Document Frequency (TF-IDF), is employed to measure how important a term is within a document relative to a collection of documents.
 				</p>
+				
+				<br>
+				<p>
+				After the text data is already prepared in the desired format, clustering is also implemented in this project. Clustering is an unsupervised learning technique used in machine learning to group together similar data points based on their features. The goal of clustering is to find patterns in the text data that can help to better understand the underlying structure and relationships between the texts. Several techniques such as K-means clustering, Hierarchical clustering, Association Rules Mining, and Latent Dirichlet Allocation (LDA) have been used in this project. K-Means, Hierarchical clustering, and Association rules mining indicate separating into five clusters is the suitable clusters based on the results. The five main discussions in this dataset are EVs’ news, EV’s price, charging infrastructure, environmental impacts from battery production, and Elon Musk’s roles in the EVs’ society. However, LDA shows that only three clusters are enough to explain the discussions within this text data. The three main topics are battery properties and attributes, Elon Musk and Tesla, and environmental impacts from EVs’ batteries.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/clustering.jpg">
+				<div class="caption">Unsupervised Learning</div>
+				</div>
+				<br>
+				<p>
+				Every method uses different metrics to help select the proper number of clusters. Silhouette score is used to help select the number of clusters in K-Means. The score will be compared between the distance between the same predicted cluster and the nearby predicted cluster in every data point. Dendrogram will help visualize how close between subtopics are and the results can help us to select the proper clusters in the Hierarchical clustering. Several graphs are used to visualize rules from the Association Rules Mining and the number of clusters can be roughly estimated from the graphs. In LDA, coherent metric and pyLDAvis are used to help score and visualize the results. The outputs are the related words in the abstract topic. After the words are scored by the coherent metric, the higher score indicates that clusters are easier to understand, which helps to choose the proper number of clusters.
+				</p>
+				<br>
 			</div>
 		</section>
 
