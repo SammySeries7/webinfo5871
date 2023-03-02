@@ -117,7 +117,7 @@
 			
 			<br>
 				<p>
-					The data cleaned in the previous chapter was stored in the csv format. The lemmatized text data was normalized by using TFIDF. The parameters were shown in the pictures below.
+					The data cleaned in the previous chapter was stored in the csv format. The lemmatized text data was normalized by using TF-IDF. The parameters were shown in the pictures below.
 				</p>
 				
 				<br>
@@ -136,7 +136,7 @@
 				<br>
 				
 				<p>
-					After that, a document-term matrix was created by TF-IDF and then converted to a dataframe like in the picture above. The reason to use TFIDF is to normalize the data. If the normalization is not employed, the high frequency words will have an impact on the model.
+					After that, a document-term matrix was created by TF-IDF and then converted to a dataframe like in the picture above. The reason to use TF-IDF is to normalize the data. If the normalization is not employed, the high frequency words will have an impact on the model.
 				</p>
 				
 				<br>
@@ -149,7 +149,7 @@
 				<br>
 				
 				<p>
-					The run_kmeans function was created to generate the K-Means model. The function will create the several K-Means models from 1 to max_k. The model will be stored in the dictionary named  kmeans_results. The model will predict the cluster label for data and then the words in each cluster will be extracted in the get_top_features_cluster.
+					The run_kmeans function was created to generate the K-Means model. The function will create the several K-Means models from 2 to max_k. The model will be stored in the dictionary named  kmeans_results. The model will predict the cluster label for data and then the words in each cluster will be extracted in the get_top_features_cluster.
 				</p>
 				<br>
 				
@@ -231,7 +231,7 @@
 			</div>
 			
 			<p>
-				After that, the normalized document-term matrix (DTM) is converted into the matrix format. Then, it was passed into the cosine similarity function to calculate the distance between clusters. Finally, the distance value is passed in the Hclust function to calculate the hierarchical clustering model like in the picture below.
+				After that, the normalized document-term matrix (DTM) is converted into the matrix format. Then, it was passed into the cosine similarity function to calculate the distance between documents. Finally, the distance value is passed in the Hclust function to calculate the hierarchical clustering model like in the picture below.
 			</p>
 			
 			<br>
@@ -447,10 +447,33 @@
 			<p>
 			The k=10 is inspired from the Silhouette score in the above graph. According to the case of the 10-clusters, the first cluster will be about the impact of electricity generation. The outstanding words are about “fuel”, “environment”, “electricity” and “grid”. The main idea is that many people concern about a lack of electricity in many big cities such as Los Angeles, San Francisco, and New York. If many people move to EV’s car, there will be a problem of blackout in the cities. To solve this problem, the fossil fuel is used to generate the electricity, which can cause air pollution and environmental concerns. The second cluster is the supercharger of Tesla. The evident words are “drive”, “tesla”, and “charge”. Many people agree that the Tesla’s supercharger network is superior to other rivals in terms of the shorter charging time and higher ampere. The third topic is the battery efficiency. Many consumers complain that EVs are not suitable for the cold weather area such as Wisconsin because the range of EVs will reduce. The main reason is that a battery need to be heated before it can continue to charge in the cold weather. The evident words are “cold”, “weather”, “charge”, and “battery”. The fourth topic is about the price between internal combustion cars (ICE) and EVs. The price of EVs is harder to access than the gas-powered car. The outstanding words are “afford”, “ice”, and ‘’electric car’’. The fifth topic is EV’s news. The news is related to sale, production, and new EVs’ models. The words indicating the topic are “sale”, “year”, “production” and “plan”. The sixth topic is an electric bicycle. The most outstanding words are “bike”, “electric”, and “ride”. The seventh topic is about Elon Musk. The keywords are “tesla”, “stock”, and “twitter”. The eighth topic is about the cost again. It is similar to the fourth topic. The main keywords are “charge”, “afford”, and “buy”. The nineth cluster is about the environmental impact of battery. It is related to how to produce and recycle EVs’ batteries. The indicators are “lithium”, “material”, and “recycle”. The first topic and this topic are linked by the idea of environment, but they are shown in different aspects. The last topic is about charging stations. Consumers are concerned about the few charging stations in some locations. The consumers need to have private garages  to charge their EVs. The indicators are “charge”, “home”, and “mile”. This topic is similar to the second topic. Both of them talk about the charging station. However, the second topic focuses on Tesla's charging network. 
 			</p>
-				
+			<br>
 			<p>
 			When the case of k=5 and case of k=10 are compared together, the main topic is the same. However, in the case of k=10, the subtopics tend to be more varied than that of the case of k=5. For example, in the case of a charging station, the case of k=10 can be more specific into the supercharger of the tesla, which is the subtopic of the charging station
 			</p>
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/k=5.png">
+			<div class="caption">The Sillhouette Analysis for K=5</div>
+			</div>
+			<br>
+			
+			
+			<br>
+				
+			<div class="img">
+			<img width="600" src="image/assignment2/part1/k=10.png">
+			<div class="caption">The Sillhouette Analysis for K=10</div>
+			</div>
+			<br>
+			
+			<p>
+			According to the Silhouette Analysis plots between k=5 and k=10, the case of k=5 has only one cluster (cluster=0) whose score is evidently below zero. The score below 0 means that it is hard to be differentiated from other clusters, whereas the case of k=10 has many clusters whose score is extremely below zero. This is the reason that, in the case of k=10, there are many subtopic clusters. 
+			</p>
+			
+			
 			<br>
 			<h3>The case of k=25</h3>
 			
