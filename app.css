@@ -16,6 +16,30 @@ body {
 
 }
 
+table {
+  width: 300px; 
+}
+
+th, caption{
+	text-align:left;
+}
+
+table, th, td{
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+}
+
+.center {
+
+  width: 50%;
+  margin-left: 180;
+  margin-right: auto;
+}
+
 .logo {
   color: var(--color-white);
   font-size: 30px;
@@ -174,3 +198,4 @@ h1 {
   width: 40%;
   margin-left: auto;
   margin-right: auto;
+  
