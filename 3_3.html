@@ -1,0 +1,712 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> INFO 5871 project </title>
+	<link rel="stylesheet" type="text/css" media="screen" href="app.css">
+</head>
+
+<nav class="menu-bar">
+	<h1 class="logo">Tittiwat<span>T.</span></h1>
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Project <i class="fas fa-caret-down"></i></a>
+
+			<div class="dropdown-menu">
+				<ul>
+					<!--<li><a href="#">Pricing</a></li>-->
+					<!--<li><a href="#">Portfolio</a></li>-->
+					<li>
+						<a href="#">Module-1 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Introduction</a></li>
+								<li><a href="1_2.html">Data</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-2 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Updated Introduction</a></li>
+								<li><a href="2_2.html">Clustering</a></li>
+								<li><a href="2_3.html">ARM</a></li>
+								<li><a href="2_4.html">LDA</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-3 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Updated Introduction#2</a></li>
+								<li><a href="3_2.html">Naive Bayes</a></li>
+								<li><a href="3_3.html">Decision Tree</a></li>
+								<li><a href="3_4.html">SVM</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-4 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="#">Module-1</a></li>
+								<li><a href="#">Module-2</a></li>
+								<li><a href="#">Module-3</a></li>
+								<li><a href="#">Module-4</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li><a href="#">FAQ</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="#">Blog</a>
+		</li>
+		<li><a href="#">Contact us</a></li>
+	</ul>
+</nav>
+
+<br>
+
+<body>
+
+	<main id="main">
+		<h1> The Decision Trees(DT) </h1>
+		<br>
+		
+		<section id="pt1" class="card">
+			<div class="arial">
+				<h3>What the decision tree is and how to use it to gain information</h3>
+				<br>
+				<p>
+					Decision tree classification is a machine learning algorithm used for predicting the target variable based on a set of independent variables or features. It works by creating a tree-like model of decisions and their possible consequences.
+				</p>
+				<br>
+				<p>
+					In a decision tree, each internal node represents a feature, and each leaf node represents a class label. The tree is constructed by recursively partitioning the data based on the values of the features until a stopping criterion is met, such as when all instances in a leaf node belong to the same class or when a predefined depth of the tree is reached.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/dt/pic_html/decisiontree1.png">
+				<div class="caption">The binary tree</div>
+				</div>
+				<br>
+
+				
+				<p>
+				To classify a new instance, the decision tree traverses from the root node down to a leaf node, following the path determined by the values of the features in the instance. The class label associated with the leaf node is then assigned to the instance.
+				</p>
+				<br>
+			
+				<p>
+				To apply decision tree classification to text data, the features used for partitioning the data are typically derived from the text itself. This can include the presence or absence of specific words or phrases, the frequency of certain words, or more advanced techniques such as topic modeling or word embeddings.
+				</p>
+				
+				<br>
+				<p>
+				For example, in text classification, a decision tree can be trained to predict the category of a document based on its content. The decision tree can partition the data based on the presence or absence of specific words or phrases that are indicative of each category.
+				</p>
+				
+				<br>
+				<p>
+				In this chapter, the topic of electric vehicles will be used to predict the accuracy using the decision tree model. The label of battery, cost, environment, infrastructure, and news will be predicted. Several parameters like max_depth, min_samples_split, and min_samples_leaf will be varied to study the impact on decision tree models. The bag of words methods like CountVectorizer and TF-IDF are used to convert the occurrence of words into a vector format. The model will expand internal nodes and leaf nodes based on the terms from the electric vehicle dataset from the first module. The model performance will be compared with Naive Bayes and Support Vector Machines to find the most suitable one for this dataset.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/dt/pic_html/decisiontree2_analyticvidhaya.png">
+				<div class="caption">The important parameters in the decision tree [analyticvidhaya.com]</div>
+				</div>
+				<br>
+				
+
+				</div>
+
+		</section>
+
+		<!-- <br> -->
+
+		<section id="pt2" class="card">
+			<div class="arial">
+			<h3>Data Preparation</h3>
+
+				<p>
+					The data is retrieved from the file in the link below. [The Data Section] Only the records that have labels will be used in this section.
+				</p>
+				
+				<br>
+				
+				<p>
+				The labels are battery, cost, infrastructure, environment, and news. The labels are removed from the document to remove bias. For example, “cost,” “infrastructure,” “environment,” “news,”  and “battery” will be removed from the dataset. The wordcloud package is used to check whether all labels are already removed.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/2.png">
+				<div class="caption">The dataframe</div>
+				</div>
+				
+				<br>
+
+				<p>
+				Then the data is splitted into the training and testing dataset. 80 percent of the data will be the training dataset. The other will be the testing dataset. The train_test_split function of the Sklearn package is used for this purpose. The function and the dataset will be shown by the pictures below. The special characters and punctuations are removed from the data. In addition, the data is also preprocessed into the lemmas using the lemmatization and stemming process. The label encoder function is used to convert the labels into the numeric type for the machine learning model. The main reason is that the decision tree from the Sklearn package is designed to work with numeric labels.
+				</p>
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/3.png">
+				<div class="caption">The training and testing dataset</div>
+				</div>
+				
+				<br>
+				<p>
+				The total of the labeled data are 1,273 records. The training dataset has 1,018 records and the testing dataset has around 255 records. When using the supervised machine learning method like the decision tree model , the complete dataset should not be used to train a model. Only the training set is used for the purpose; the other part of the dataset is called the testing set, which can be used to evaluate the performance of the model. It’s really important to realize that the training set and testing set are disjoint sets, so they don’t have any observation in common, this makes it possible to test our model on unseen data.
+				</p>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/4.png">
+				<div class="caption">The training set of documents</div>
+				</div>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/5.png">
+				<div class="caption">The testing set of documents</div>
+				</div>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/6.png">
+				<div class="caption">The training labels</div>
+				</div>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/7.png">
+				<div class="caption">The testing labels</div>
+				</div>
+				
+				<p>
+				For the dataset, TF-IDF and CountVectorizer are implemented. When the more outstanding method is known, several data preprocessing methods are implemented to feed data into the decision tree model. For example, the documents can be stemming, lemmatization, and lemmatization together with stemming. The picture of the decision tree model is shown below.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/dt/pic_html/dt_model.png">
+				<div class="caption">The decision tree model</div>
+				</div>
+				<br>
+				
+				<p>
+				After some parameters are adjusted to perform hyperparameter tuning, the randomizedsearchCV are employed to find the best model and related parameters as shown in the code below.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/dt/pic_html/rv.png">
+				<div class="caption">The RandomVariable</div>
+				</div>
+				<br>
+				
+				<p>
+				After the best model is obtained. The top 20 important features of the model are plotted like in the graph below. The objective is to understand the impactful terms on each label.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/dt/cf/best_depth15_impt.png">
+				<div class="caption">The important terms from the decision tree model</div>
+				</div>
+				<br>
+		
+
+			</div>
+		</section>
+		
+		<section id="pt3" class="card">
+			<div class="arial">
+
+			
+			<h3>Results and Discussion</h3>
+			<br>
+			
+			<p>
+		
+				In result and discussion, there are several five important topics to investigate. There are the accuracy comparison between CountVectorizer and TF-IDF, the comparison between using lemmatization, stemming and lemmatization together with stemming, the important parameters in the decision tree model, and impactful words on the decision tree models.
+			</p>
+			
+			<br>
+			<p>1. The accuracy comparison between CountVectorizer and TF-IDF</p>
+			<br>
+			
+			<p>
+				Both bag-of-words models (BOWs) have a max feature equal to 4308 terms. The other parameters are the same. The maximum depth of the model is set at 25. The lemmatization and stemming methods are used to prepare the dataset together.
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>The accuracy of the models based on the bag-of-words method</caption>
+			  <tr>
+				<th>Model</th>
+				<th>CountVectorizer (%)</th>
+				<th>TF-IDF (%)</th>
+			  </tr>
+			  <tr>
+				<td>Decision Tree</td>
+				<td>58.66</td>
+				<td>63.77</td>
+			  </tr>
+
+			</table>
+			<br>
+			
+			<p>
+			According to the above table, the models created from TF-IDF outperform the models created from CountVectorizer. The main reason is that TF-IDF will scale down the impact of tokens that occur very frequently in a given corpus and that are hence empirically less informative than features that occur in a small fraction of the training corpus, whereas the CountVectorizer considers only the occurrences of tokens in each document. Therefore, in the further analysis in this chapter, TF-IDF will be used as the bag-of-words model.
+			</p>
+			
+			<br>
+			<p>2. The number of max_features</p>
+			<br>
+			
+			<p>
+			In this dataset, if the max_features is not set, the total terms will be at 4,308 words. However, the excessive number of words may not be good with the models because the terms can cause the models to be too complex and degrade their accuracy. The picture below is the base TF-IDF. The number of max features will be varied. The decision tree model will be used to verify the appropriate number of terms for the models.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/tfidf.png">
+			<div class="caption">The TF-IDF base model</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/dt_model.png">
+			<div class="caption">The decision tree model</div>
+			</div>
+			<br>
+			
+			<br>
+			<table class="center">
+			<caption>The accuracy of the models vs max_features</caption>
+			  <tr>
+				<th>Model</th>
+				<th>Accuracy (%)</th>
+			  </tr>
+			  <tr>
+				<td>3000</td>
+				<td>60.99</td>
+
+			  </tr>
+			  <tr>
+				<td>4000</td>
+				<td>61.47</td>
+			  </tr>
+			  <tr>
+				<td>4308</td>
+				<td>64.17</td>
+
+			  </tr>
+
+			</table>
+			<br>
+			
+			<p>
+			According to the above table, the maximum max_features at 4308 can achieve the best accuracy. Too low max_features can reduce the accuracy of the models because of the underfitting models. Therefore, in the further analysis in this chapter, the max_features at 4308 will be used as the bag-of-words parameter.
+			</p>
+			
+			<br>
+			
+			<br>
+			<p>3. Stemming vs Lemmatization</p>
+			<br>
+			
+			<p>
+			The dataset is transformed into lemmas by using stemming, lemmatization, stemming together with lemmatization. All formats will be compared using the decision tree models at depth=25. The maximum feature is set at 4,000. The result will be shown in the table below.
+			</p>
+
+			<br>
+			<table class="center">
+			<caption>Stemming vs Lemmatization</caption>
+			  <tr>
+				<th>Model</th>
+				<th>Stemming (%)</th>
+				<th>Lemmatization (%)</th>
+				<th>Stemming and Lemmatization (%)</th>
+			  </tr>
+			  <tr>
+				<td>Decision tree</td>
+				<td>62.59</td>
+				<td>62.59</td>
+				<td>63.77</td>
+			  </tr>
+
+			</table>
+			<br>
+			
+			<p>
+			According to the table above, the lemmatization accuracy is the same as the stemming accuracy. However, the way that stemming converts tokens into lemmas sometimes makes the terms meaningless. For example, “busy” will be converted to “busi”. On the contrary, lemmatization converts the terms to lemmas based on their part of speech, which is easier to understand. Stemming together with lemmatization tends to outperform the other methods. Therefore, in the further analysis in this chapter, stemming and lemmatization will be used to convert terms to lemmas together.
+			</p>
+			
+			<br>
+			<p>4. Decision tree parameters</p>
+			<br>
+			<p>
+			In this section, only three parameters will be discussed. There are max_depth, min_samples_split, min_samples_leaf. 
+			</p>
+			
+			<br>
+			<p><strong>max_depth</strong></p>
+			<br>
+			
+			<p>
+			Regarding max_depth, This parameter determines the maximum depth of the tree. It can help limit the vertical size of trees. If the parameter is set too high, it will cause the model overfitting. In the model analysis, the other parameters will be set as in the picture below. Only the maximum depth will be changed. The table below shows the relationship between the model accuracy and maximum depth.
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>The effect of max_depth on the model accuracy</caption>
+			  <tr>
+				<th>max_depth</th>
+				<th>Accuracy (%)</th>
+			  </tr>
+			  <tr>
+				<td>15</td>
+				<td>59.44</td>
+			  </tr>
+			  <tr>
+				<td>25</td>
+				<td>61.81</td>
+			  </tr>
+			  <tr>
+				<td>35</td>
+				<td>64.17</td>
+			  </tr>
+			  <tr>
+				<td>40</td>
+				<td>62.99</td>
+			  </tr>
+
+			</table>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/dt_model.png">
+			<div class="caption">The decision tree model</div>
+			</div>
+			<br>
+						
+
+			
+			<p>
+			According to the table above, the suitable max_depth value is at 35. If the parameter is set too low, it will cause the model to be underfitting. If the parameter is set too high, it will cause the model overfitting. The further analysis will keep the max_depth at 35.
+			</p>
+			
+			<br>
+			<p><strong>min_samples_split</strong></p>
+			<br>
+			
+			<p>
+			The parameter helps control the minimum number of samples a node must contain in order to consider splitting. If the parameter is set too low, it will cause the model to be overfitting. If the parameter is set too high, it will cause the model underfitting. In the model analysis, the other parameters will be kept the same. Only min_samples_split will be changed. The table below shows the relationship between the model accuracy and minimum sample split.
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>The effect of min_samples_split on the model accuracy</caption>
+			  <tr>
+				<th>min_samples_split</th>
+				<th>Accuracy (%)</th>
+			  </tr>
+			  <tr>
+				<td>2</td>
+				<td>62.99</td>
+			  </tr>
+			  <tr>
+				<td>5</td>
+				<td>62.99</td>
+			  </tr>
+			  <tr>
+				<td>7</td>
+				<td>64.17</td>
+			  </tr>
+			  <tr>
+				<td>9</td>
+				<td>62.99</td>
+			  </tr>
+
+			</table>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/dt_model.png">
+			<div class="caption">The decision tree model</div>
+			</div>
+			<br>
+			
+			<p>
+			According to the table above, the accuracy is maximum at min_sample_split at 7. The further analysis will keep the min_sample_split at 7.
+			</p>
+			
+			<br>
+			<p><strong>min_samples_leaf</strong></p>
+			<br>
+			
+			<p>
+			min_samples_leaf is The minimum number of samples required to be at a leaf node. This parameter is similar to min_samples_splits, however, this describes the minimum number of samples at the leaf, the base of the tree. If the parameter is set too low, it will cause the model to be overfitting. If the parameter is set too high, it will cause the model underfitting. In the model analysis, the other parameters will be kept the same. Only min_samples_split will be changed. The table below shows the relationship between the model accuracy and minimum sample split.
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>The effect of min_samples_leaf on the model accuracy</caption>
+			  <tr>
+				<th>min_samples_leaf</th>
+				<th>Accuracy (%)</th>
+			  </tr>
+			  <tr>
+				<td>1</td>
+				<td>63.77</td>
+			  </tr>
+			  <tr>
+				<td>2</td>
+				<td>64.17</td>
+			  </tr>
+			  <tr>
+				<td>3</td>
+				<td>59.84</td>
+			  </tr>
+			  </table>
+			<br>
+			 <p>
+			 According to the table above, the accuracy is maximum at min_sample_leaf at 2. The further analysis will keep the min_sample_leaf at 2.
+			 </p>
+			 
+			<br>
+			<p>5. impactful words</p>
+			<br>
+			
+			<p>
+			The top 20 influential terms will be collected from the decision tree model. The weight of the terms can be obtained from the model. The plots are shown in the picture below based on each label.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/ipt_terms.png">
+			<div class="caption">The important terms from the decision tree model</div>
+			</div>
+			<br>
+			
+			<p>
+			According to the picture above, “charge,” “afford,” “price,” and “tesla” play an important role to help the model classify the labels. The top 15 important words are shown in the figure above. All words above show an evident guideline of the model to classify the labels. For example, “lithium,” “fossil fuel” and “recycle” can be correlated with the label of environment. The word cloud of each label will be shown in the picture below.
+			</p>
+			
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/check terms.png">
+			<div class="caption">The wordcloud</div>
+			</div>
+			<br>
+			
+			<br>
+			<p>6. Three different trees</p>
+			<br>
+			
+			<p>
+			In this section, different tree models are plotted as the tree diagram. Only the best model will be discussed in details about confusion matrix and F1-score.
+			</p>
+			
+			<br>
+			
+			<p>
+			1. max_depth=35, min_sample_split=7, and min_sample_leaf=2. This is the best model in this analysis. The accuracy is 64.17%. Its F1-score is 0.58, 0.66, 0.56, 0.67, and 0.72. The confusion matrix is shown below. [battery, cost, environment, infrastructure, news]
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/cf_dt.png">
+			<div class="caption">The confusion matrix</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/f1_best.png">
+			<div class="caption">The F1-Score</div>
+			</div>
+			<br>
+			
+			<p>
+			According to the confusion matrix, the model predicts environment data as the label of the battery. This results in a low f1-score of battery and environment. The main reason may be the highly correlated terms between the labels. The other labels such as cost, infrastructure, and news are classified well by the model.
+			</p>
+			
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/dt_model.png">
+			<div class="caption">The decision tree model</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/bestmodel_fullsize.png">
+			<div class="caption">The full size tree</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/bestmodel_zoom.png">
+			<div class="caption">The zoomed tree</div>
+			</div>
+			<br>
+			
+			<p>
+			2. max_depth=25, min_sample_split=7, and min_sample_leaf=2. The accuracy is 61.81% The confusion matrix is shown below.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/cf_2nd_model.png">
+			<div class="caption">The confusion matrix</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/2nd_fullsize.png">
+			<div class="caption">The full size tree</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/2nd_zoom.png">
+			<div class="caption">The zoomed tree</div>
+			</div>
+			<br>
+			
+			<p>
+			3. max_depth=15, min_sample_split=2, and min_sample_leaf=1. The accuracy is 60.24% The confusion matrix is shown below.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/cf_3rd_model.png">
+			<div class="caption">The confusion matrix</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/3rd_fullsize.png">
+			<div class="caption">The full size tree</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/dt/pic_html/3rd_zoom.png">
+			<div class="caption">The zoomed tree</div>
+			</div>
+			<br>
+
+
+		
+			</div>
+		
+		
+		
+		</section>
+		
+			<section id="pt4" class="card">
+			<div class="arial">
+
+			
+			<h3>Conclusion</h3>
+			<br>
+			<p>
+			In this chapter, the label of battery, cost, environment, infrastructure, and news are predicted using the decision tree model. The accuracy of the best model is at 64.17%. The impactful parameters are max_depth, min_sample_split, and min_leaf_split. Among all parameters,  max_depth has the greatest impact on the model accuracy. According to the confusion matrix and F1-score, the model tends to predict the labels of environment and battery more poorly than any other labels. The main reason may be the highly correlated terms between the labels. The important terms from the models are “charge,” “afford,” “price,” and “tesla,” which play a role in helping the model to classify the labels.
+			</p>
+			<br>
+
+			
+			
+			
+				
+			</div>
+		</section>
+		
+		
+		<br>
+		
+		<section id="pt5" class="card">
+		<div class="arial">
+		<h2>Reference</h2>
+			<ul>
+				<li>https://medium.com/@mohtedibf/indepth-parameter-tuning-for-decision-tree-6753118a03c3#:~:text=min_samples_split%20represents%20the%20minimum%20number,the%20samples%20at%20each%20node.</li>
+
+
+			</ul>
+		<br>
+		
+		
+
+		</div>
+		</section>	
+		
+
+
+		
+		<section id="Data" class="card">
+			<b> Data </b>
+			<br>
+			<ul>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/ET6om4nRsF5EpE73BSFgd-gBpSIcfvcN-bBpy_Bq3pq5qw?e=tfXqqZ">The dataset</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EQe3ijADmXBDn-8zKWON9UcB3uJxlw-8CgtBpNs2e5Ve_w?e=ZqkJsB">Decision Tree Python file</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/tito7259_colorado_edu/EbAAywThMPpHjYqbneb6cqsB7uN3wz_rmtH8B-iSgtAZMQ?e=dLYvAU">Tree diagram [Best model]</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/tito7259_colorado_edu/EVDnCo0aZj9LrjONpDvqYpoBE0B99RCYfKwZPGoZWYO7ZQ">The second tree diagram</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/tito7259_colorado_edu/EdEBl7Lhvs1BpsUiB6mA8ZUBTHOnnn2MJFtRSPID4GQmqg?e=iF8jq9">The third tree diagram</a></li>
+
+			
+				<li><a href="">etc</a></li>
+
+			</ul>
+
+			<hr>
+
+		</section>
+
+	</main>
+
+</body>
+
+<!-- Sidebar-->
+<div id="sidebar" class="card">
+	<h3>Navigation Pane</h3>
+	<!-- Navigation -->
+	<ul id="main-nav">
+		<li><a href="#pt1">What the decision tree does and how to use it to gain information</a></li>
+		<li><a href="#pt2">Data Preparation</a></li>
+		<li><a href="#pt3">Results and Discussion</a></li>
+		<li><a href="#pt4">Conclusion</a></li>
+		<li><a href="#Data">Data</a></li>
+	</ul>
+	<hr />
+	<h3>About me</h3>
+	<ul>
+		<li><strong>Email:</strong> tito7259@colorado.edu</li>
+	</ul>
+</div>

@@ -162,6 +162,15 @@
 				Every method uses different metrics to help select the proper number of clusters. Silhouette score is used to help select the number of clusters in K-Means. The score will be compared between the distance between the same predicted cluster and the nearby predicted cluster in every data point. Dendrogram will help visualize how close between subtopics are and the results can help us to select the proper clusters in the Hierarchical clustering. Several graphs are used to visualize rules from the Association Rules Mining and the number of clusters can be roughly estimated from the graphs. In LDA, coherent metric and pyLDAvis are used to help score and visualize the results. The outputs are the related words in the abstract topic. After the words are scored by the coherent metric, the higher score indicates that clusters are easier to understand, which helps to choose the proper number of clusters.
 				</p>
 				<br>
+				<p>
+				As mentioned before, some of the data have been labeled in the five categories. The data can be used to perform the text classification. The supervised learning methods will be implemented because the methods rely on the prior knowledge of what the output values for our samples should be. Hence, the goal of supervised learning is to learn a function that, given a sample of data and desired outputs, best approximates the relationship between input and output observable in the data. In this project, several supervised learning methods such as Naïve Bayes, Decision tree, and Support vector machines (SVM) are implemented to assess the accuracy on the testing dataset. Among all models, the SVM’s accuracy outperforms the accuracy from the other models. The SVM’s accuracy is around 77.0%, whereas the decision trees and Naïve Bayes accuracy are around 65.0% and 74.0%. However, the most suitable method may be Naïve Bayes because the model uses less time-processing with high accuracy. Before being fed into the models, all label terms are removed from the documents to avoid bias during the training process.
+				</p>
+				<br>
+				<div class="img">
+				<img width="600" src="image/textcl.png">
+				<div class="caption">Text Classification</div>
+				</div>
+				<br>
 			</div>
 		</section>
 

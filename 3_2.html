@@ -1,0 +1,470 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> INFO 5871 project </title>
+	<link rel="stylesheet" type="text/css" media="screen" href="app.css">
+</head>
+
+<nav class="menu-bar">
+	<h1 class="logo">Tittiwat<span>T.</span></h1>
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Project <i class="fas fa-caret-down"></i></a>
+
+			<div class="dropdown-menu">
+				<ul>
+					<!--<li><a href="#">Pricing</a></li>-->
+					<!--<li><a href="#">Portfolio</a></li>-->
+					<li>
+						<a href="#">Module-1 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Introduction</a></li>
+								<li><a href="1_2.html">Data</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-2 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Updated Introduction</a></li>
+								<li><a href="2_2.html">Clustering</a></li>
+								<li><a href="2_3.html">ARM</a></li>
+								<li><a href="2_4.html">LDA</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-3 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Updated Introduction#2</a></li>
+								<li><a href="3_2.html">Naive Bayes</a></li>
+								<li><a href="3_3.html">Decision Tree</a></li>
+								<li><a href="3_4.html">SVM</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-4 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="#">Module-1</a></li>
+								<li><a href="#">Module-2</a></li>
+								<li><a href="#">Module-3</a></li>
+								<li><a href="#">Module-4</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li><a href="#">FAQ</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="#">Blog</a>
+		</li>
+		<li><a href="#">Contact us</a></li>
+	</ul>
+</nav>
+
+<br>
+
+<body>
+
+	<main id="main">
+		<h1> The Naïve Bayes(NB) </h1>
+		<br>
+		
+		<section id="pt1" class="card">
+			<div class="arial">
+				<h3>What the Naïve Bayes is and how to use it to gain information</h3>
+				<br>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/nb/nb_eq.png">
+				<div class="caption">The Bayes theorem</div>
+				</div>
+				<br>
+				<p>
+					The Naïve Bayes classifier is a supervised machine learning algorithm, which is used for classification tasks, like text classification. It is also part of a family of generative learning algorithms, meaning that it seeks to model the distribution of inputs of a given class or category. Unlike discriminative classifiers, like logistic regression, it does not learn which features are most important to differentiate between classes.
+				</p>
+				<br>
+				<p>
+					Using Bayes theorem, we can find the probability of A happening, given that B has occurred. Here, B is the evidence and A is the hypothesis. The assumption made here is that the predictors/features are independent, which means the presence of one particular feature does not affect the other. Hence it is called naive.
+				</p>
+				<br>
+				
+				<p>
+					To apply naive bayes classification to text data, the class given on the features probabilities are calculated. All features are tokens, which are preprocessed and tokenized from documents. The classes that have the highest conditional probability given on features will be predicted as the final prediction. 
+				</p>
+				<br>
+			
+				<p>
+					In this chapter, the topic of electric vehicles will be used to predict the accuracy using the several Naive Bayes models such as the Multinomial, Gaussian, and Bernoulli. The label of battery, cost, environment, infrastructure, and news will be predicted. The bag of words methods like CountVectorizer and TF-IDF are used to convert the occurrence of words into a vector format. Several analyses such as the optimum features and the suitable type of bag-of-words will be conducted to find the highest accuracy on the testing dataset. The model performance will be compared with the Decision tree and the Support Vector Machines to find the most suitable one for this dataset.
+				</p>
+				
+
+				</div>
+
+		</section>
+
+		<!-- <br> -->
+
+		<section id="pt2" class="card">
+			<div class="arial">
+			<h3>Data Preparation</h3>
+
+				<p>
+					The data is retrieved from the file in the link below. [The Data Section] Only the records that have labels will be used in this section.
+				</p>
+				
+				<br>
+				
+				<p>
+				The labels are battery, cost, infrastructure, environment, and news. The labels are removed from the document to remove bias. For example, “cost,” “infrastructure,” “environment,” “news,”  and “battery” will be removed from the dataset. The wordcloud package is used to check whether all labels are already removed.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/2.png">
+				<div class="caption">The dataframe</div>
+				</div>
+				
+				<br>
+
+				<p>
+				Then the data is splitted into the training and testing dataset. 80 percent of the data will be the training dataset. The other will be the testing dataset. The train_test_split function of the Sklearn package is used for this purpose. The function and the dataset will be shown by the pictures below. The special characters and punctuations are removed from the data. In addition, the data is also preprocessed into the lemmas using the lemmatization and stemming process. The label encoder function is used to convert the labels into the numeric type for the machine learning model.
+				</p>
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/3.png">
+				<div class="caption">The training and testing dataset</div>
+				</div>
+				
+				<br>
+				<p>
+				The total of the labeled data are 1,273 records. The training dataset has 1,018 records and the testing dataset has around 255 records. When using the supervised machine learning method like the Naive Bayes, the complete dataset should not be used to train a model. Only the training set is used for the purpose; the other part of the dataset is called the testing set, which can be used to evaluate the performance of the model. It’s really important to realize that the training set and testing set are disjoint sets, so they don’t have any observation in common, this makes it possible to test our model on unseen data.
+				</p>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/4.png">
+				<div class="caption">The training set of documents</div>
+				</div>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/5.png">
+				<div class="caption">The testing set of documents</div>
+				</div>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/6.png">
+				<div class="caption">The training labels</div>
+				</div>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/svm/image_html/7.png">
+				<div class="caption">The testing labels</div>
+				</div>
+				
+				<p>
+				For the dataset, TF-IDF and CountVectorizer are implemented. When the more outstanding method is known, several data preprocessing methods are implemented to feed data into the Naive Bayes model. For example, the documents can be stemming, lemmatization, and lemmatization together with stemming. The picture of the Naive Bayes model is shown below.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/nb/multinb.png">
+				<div class="caption">The Naive Bayes model</div>
+				</div>
+				<br>
+				
+				<p>
+				After the best model is obtained. The top 10 important features of the model are plotted like in the graph below. The objective is to understand the impactful terms on each label.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/nb/word_importance.png">
+				<div class="caption">The important terms from the Naive Bayes model</div>
+				</div>
+				<br>
+		
+
+			</div>
+		</section>
+		
+		<section id="pt3" class="card">
+			<div class="arial">
+
+			
+			<h3>Results and Discussion</h3>
+			<br>
+			
+			<p>
+				In result and discussion, there are several five important topics to investigate. There are the accuracy comparison between CountVectorizer and TF-IDF, the comparison between using lemmatization, stemming and lemmatization together with stemming, and impactful words on the Naive Bayes models. Before going to the analysis part, let’s check the terms in each category.
+			</p>
+			
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment3/nb/check terms.png">
+				<div class="caption">The wordcloud</div>
+				</div>
+				<br>
+				
+			<p>
+			According to the figure above, the label terms have already been removed from the documents to avoid bias in the Naive Bayes models. Punctuation and special characters have been removed from the documents, so the data is ready for the analysis part.
+			</p>
+			
+			<br>
+			<p>1. The accuracy comparison between CountVectorizer and TF-IDF</p>
+			<br>
+			
+			<p>
+			Both bag-of-words models (BOWs) have a max feature equal to 4308 terms. The other parameters are the same. The Multinomial Naive Bayes is used.  The lemmatization and stemming methods are used to prepare the dataset together. The accuracy in each method is shown in the table below.
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>The accuracy of the models based on the bag-of-words method</caption>
+			  <tr>
+				<th>Model</th>
+				<th>CountVectorizer (%)</th>
+				<th>TF-IDF (%)</th>
+			  </tr>
+			  <tr>
+				<td>Multinomial Naive Bayes</td>
+				<td>70.86</td>
+				<td>72.44</td>
+			  </tr>
+
+			</table>
+			<br>
+			
+			<p>
+			According to the above table, the models created from TF-IDF outperform the models created from CountVectorizer. The main reason is that TF-IDF will scale down the impact of tokens that occur very frequently in a given corpus and that are hence empirically less informative than features that occur in a small fraction of the training corpus, whereas the CountVectorizer considers only the occurrences of tokens in each document. Therefore, in the further analysis in this chapter, TF-IDF will be used as the bag-of-words model.
+			</p>
+			
+			<br>
+			<p>2. The number of max_features</p>
+			<br>
+			
+			<p>
+			In this dataset, if the max_features is not set, the total terms will be at 4,308 words. However, the excessive number of words may not be good with the models because the terms can cause the models to be too complex and degrade their accuracy. The picture below is the base TF-IDF. The number of max features will be varied. The Multinomial Naive Bayes model will be used to verify the appropriate number of terms for the models.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/nb/tfidf_base.png">
+			<div class="caption">The TF-IDF base model</div>
+			</div>
+			<br>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/nb/multinb.png">
+			<div class="caption">The Naive Bayes model</div>
+			</div>
+			<br>
+			
+			<br>
+			<table class="center">
+			<caption>The accuracy of the models vs max_features</caption>
+			  <tr>
+				<th>Model</th>
+				<th>Accuracy (%)</th>
+			  </tr>
+			  <tr>
+				<td>3000</td>
+				<td>60.99</td>
+
+			  </tr>
+			  <tr>
+				<td>4000</td>
+				<td>61.47</td>
+			  </tr>
+			  <tr>
+				<td>4308</td>
+				<td>64.17</td>
+
+			  </tr>
+
+			</table>
+			<br>
+			
+			<p>
+			According to the above table, the maximum max_features at 4308 can achieve the best accuracy. Too low max_features can reduce the accuracy of the models because of the underfitting models. Therefore, in the further analysis in this chapter, the max_features at 4308 will be used as the bag-of-words parameter.
+			</p>
+			
+			<br>
+			
+			<br>
+			<p>3. Stemming vs Lemmatization</p>
+			<br>
+			
+			<p>
+			The dataset is transformed into lemmas by using stemming, lemmatization, stemming together with lemmatization. Several models such as Multinomial, Bernoulli, Gaussian Naive Bayes are used to assess the accuracy. The maximum feature is set at 4,308. The result will be shown in the table below. Noted that, the Bernoulli Naive Bayes data is prepared from the CounterVectorizer to show an occurrence of terms.
+			</p>
+
+			<br>
+			<table class="center">
+			<caption>Stemming vs Lemmatization</caption>
+			  <tr>
+				<th>Model</th>
+				<th>Stemming (%)</th>
+				<th>Lemmatization (%)</th>
+				<th>Stemming and Lemmatization (%)</th>
+			  </tr>
+			  <tr>
+				<td>Multinomial NB</td>
+				<td>74.01</td>
+				<td>72.44</td>
+				<td>72.04</td>
+			  </tr>
+			  <tr>
+				<td>Bernoulli NB</td>
+				<td>63.38</td>
+				<td>64.56</td>
+				<td>64.17</td>
+			  </tr>
+			  <tr>
+				<td>Gaussian NB</td>
+				<td>59.05</td>
+				<td>56.69</td>
+				<td>58.26</td>
+			  </tr>
+
+			</table>
+			<br>
+			
+			<p>
+			According to the table above, the lemmatization accuracy is the same as the stemming accuracy. However, the way that stemming converts tokens into lemmas sometimes makes the terms meaningless. For example, “busy” will be converted to “busi”. On the contrary, lemmatization converts the terms to lemmas based on their part of speech, which is easier to understand. According to the highest accuracy, in the further analysis in this chapter, stemming will be used to convert terms to lemmas.
+			</p>
+			
+			<br>
+			<p>
+			Among the models, Multinomial Naive Bayes works very well on this dataset. This dataset may not be from Gaussian distribution, so it does not work well on this data. The occurrence of terms from CountVectorizer may not be the good features for the model, so the Bernoulli Naive Bayes does not have high enough accuracy. The confusion matrix and the F1-Score of the Multinomial Naive Bayes are shown in the pictures below
+			</p>
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/nb/cf.png">
+			<div class="caption">The confusion matrix of Multinomial Naive Bayes model</div>
+			</div>
+			<br>
+			
+			 
+			<br>
+			<p>5. impactful words</p>
+			<br>
+			
+			<p>
+			The top 20 influential terms will be collected from the decision tree model. The weight of the terms can be obtained from the model. The plots are shown in the picture below based on each label.
+			</p>
+			
+			<br>
+			<div class="img">
+			<img width="600" src="image/assignment3/nb/word_importance.png">
+			<div class="caption">The important terms from the Multinomial Naive Bayes model</div>
+			</div>
+			<br>
+			
+			<p>
+			According to the picture above, “charge,” “range,” and “cold” play an important role in helping the model classify the label of the battery. All of them are related to the range of EVs. “afford,” “price,” and “car” are the key terms of the label of the cost. They reflect the price of EVs. “recycle,” “mining,” and “lithium” are the important terms for the environment. They are about the components in the battery of EVs and the benefits of EVs over the gas-powered cars. Some components in the battery are hard to recycle. The infrastructure has the key terms such as “charger,” “home,” and “station”. The terms express the charging facility of the EVs. The infrastructure has the key terms such as “charger,” “home,” and “station”. The terms express the charging facility of the EVs. Regarding the label of news, key terms are “tesla,” “electric,” and “model”; The terms reflect advertisement and news about EVs.
+			</p>
+			
+
+
+
+		
+			</div>
+		
+		
+		
+		</section>
+		
+			<section id="pt4" class="card">
+			<div class="arial">
+
+			
+			<h3>Conclusion</h3>
+			<br>
+			<p>
+			In this chapter, the label of battery, cost, environment, infrastructure, and news are predicted using the Naive Bayes model. The accuracy of the best model is at 74.01% from the multinomial Naive Bayes model. TF-IDF plays a role to help the model achieve high accuracy because the method helps normalize and emphasize the important terms in documents. According to the confusion matrix and F1-score, the model tends to predict all labels well, especially for environment and news because those two labels compose of several unique keywords such as “lithium” and “mining”. The important terms from the models are “charge,” “afford,” “recycle,” and “tesla,” which play a role in helping the model to classify the labels. In addition, those terms can represent the labels very well.
+			</p>
+			<br>
+
+			
+			
+			
+				
+			</div>
+		</section>
+		
+		
+		<br>
+		
+		<section id="pt5" class="card">
+		<div class="arial">
+		<h2>Reference</h2>
+			<ul>
+				<li>https://towardsdatascience.com/naive-bayes-classifier-81d512f50a7c#:~:text=A%20Naive%20Bayes%20classifier%20is,based%20on%20the%20Bayes%20theorem.</li>
+
+
+			</ul>
+		<br>
+		
+		
+
+		</div>
+		</section>	
+		
+
+
+		
+		<section id="Data" class="card">
+			<b> Data </b>
+			<br>
+			<ul>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/ET6om4nRsF5EpE73BSFgd-gBpSIcfvcN-bBpy_Bq3pq5qw?e=tfXqqZ">The dataset</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EbXYH8iuUlpGqrILCcuFgt4BwaEd8Z9p6kfUhyIf7V4Qqg?e=INLAtD">Naive Bayes Python file</a></li>
+
+
+			
+				<li><a href="">etc</a></li>
+
+			</ul>
+
+			<hr>
+
+		</section>
+
+	</main>
+
+</body>
+
+<!-- Sidebar-->
+<div id="sidebar" class="card">
+	<h3>Navigation Pane</h3>
+	<!-- Navigation -->
+	<ul id="main-nav">
+		<li><a href="#pt1">What the Naive Bayes does and how to use it to gain information</a></li>
+		<li><a href="#pt2">Data Preparation</a></li>
+		<li><a href="#pt3">Results and Discussion</a></li>
+		<li><a href="#pt4">Conclusion</a></li>
+		<li><a href="#Data">Data</a></li>
+	</ul>
+	<hr />
+	<h3>About me</h3>
+	<ul>
+		<li><strong>Email:</strong> tito7259@colorado.edu</li>
+	</ul>
+</div>
