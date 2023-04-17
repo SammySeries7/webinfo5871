@@ -1,0 +1,1031 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> INFO 5871 project </title>
+	<link rel="stylesheet" type="text/css" media="screen" href="app.css">
+</head>
+
+<nav class="menu-bar">
+	<h1 class="logo">Tittiwat<span>T.</span></h1>
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Project <i class="fas fa-caret-down"></i></a>
+
+			<div class="dropdown-menu">
+				<ul>
+					<!--<li><a href="#">Pricing</a></li>-->
+					<!--<li><a href="#">Portfolio</a></li>-->
+					<li>
+						<a href="#">Module-1 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Introduction</a></li>
+								<li><a href="1_2.html">Data</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-2 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Updated Introduction</a></li>
+								<li><a href="2_2.html">Clustering</a></li>
+								<li><a href="2_3.html">ARM</a></li>
+								<li><a href="2_4.html">LDA</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-3 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Updated Introduction#2</a></li>
+								<li><a href="3_2.html">Naive Bayes</a></li>
+								<li><a href="3_3.html">Decision Tree</a></li>
+								<li><a href="3_4.html">SVM</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<a href="#">Module-4 <i class="fas fa-caret-right"></i></a>
+
+						<div class="dropdown-menu-1">
+							<ul>
+								<li><a href="1_1.html">Updated Introduction_final</a></li>
+								<li><a href="4_1.html">Neural Network</a></li>
+								<li><a href="#">Module-3</a></li>
+								<li><a href="#">Module-4</a></li>
+							</ul>
+						</div>
+					</li>
+
+					<li><a href="#">FAQ</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="#">Blog</a>
+		</li>
+		<li><a href="#">Contact us</a></li>
+	</ul>
+</nav>
+
+<br>
+
+<body>
+
+	<main id="main">
+		<h1> Neural Networks </h1>
+		<br>
+		
+		<section id="pt1" class="card">
+			<div class="arial">
+				<h3>What Neural Networks are and how to use it to gain information</h3>
+				<br>
+				<p>
+					Neural networks, also known as artificial neural networks (ANNs) or simulated neural networks (SNNs), are a subset of machine learning and are at the heart of deep learning algorithms. Their name and structure are inspired by the human brain, mimicking the way that biological neurons signal to one another. 
+				</p>
+				<br>
+				<p>
+					Artificial neural networks (ANNs) are composed of node layers, containing an input layer, one or more hidden layers, and an output layer. Each node, or artificial neuron, connects to another and has an associated weight and threshold. If the output of any individual node is above the specified threshold value, that node is activated, sending data to the next layer of the network. Otherwise, no data is passed along to the next layer of the network.
+				</p>
+				
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment4/nn.png">
+				<div class="caption">The Neural Networks diagram</div>
+				</div>
+				<br>
+
+				
+				<p>
+					Neural networks rely on training data to learn and improve their accuracy over time. However, once these learning algorithms are fine-tuned for accuracy, they are powerful tools in computer science and artificial intelligence, allowing us to classify and cluster data at a high velocity.
+				</p>
+				<br>
+				<p>
+					In this chapter, the topics of electric vehicles will be used to predict using the neural networks, which the labels are battery, cost, environment, infrastructure, and news. Several types of neural networks like ANN, Convolutional Neural Network (CNN), and Long Short-Term Memory (LSTM) will be used to find the best accuracy. The bag of words methods like CountVectorizer and TF-IDF are used to convert the occurrence of words into a vector format. In addition, the word embedding is also used to compare the model performance with the bag of words methods. The word embedding is the way to transform a word into a vector format. The similar words will have their vectors closer to each other. 
+				</p>
+				<br>
+				<div class="img">
+				<img width="600" src="image/assignment4/word embedding.png">
+				<div class="caption">Word Embedding</div>
+				</div>
+				<br>
+				<p>
+					GLoVe is also employed as the global embedding. GloVe stands for Global Vectors for Word Representation. It is a type of word embedding model that represents words as vectors in a high-dimensional space based on the co-occurrence statistics of words in a large corpus of text. All mentioned techniques will be implemented to understand how they work and find the best accuracy possible.
+				</p>
+				
+
+				
+
+				</div>
+
+		</section>
+
+		<!-- <br> -->
+
+		<section id="pt2" class="card">
+			<div class="arial">
+			<h3>Data Preparation</h3>
+			<br>
+				<p>
+					The data is retrieved from the file in the link below. [The Data Section] Only the records that have labels will be used in this section.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/dataset.png">
+				<div class="caption">The dataset</div>
+				</div>
+				
+			<h4>CountVectorizer and TF-IDF</h4>
+				
+				<p>
+					After the stop words are removed and the text data is converted to lemmas using the lemmatization and stemming techniques, the texts are passed to the CountVectorizer and TF-IDF as shown in the picture below. The texts that their length is between 3 and 20 characters will be selected.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/cv_tfidf.png">
+				<div class="caption">CountVectorizer and TF-IDF</div>
+				</div>
+				
+				<br>
+
+				<p>
+				Then, the data will be splitted into a training set and a testing set in the proportion of 80:20. The label will be removed from the corpus dataframe as shown in the picture. The training and testing labels will be converted into the one-hot encoding format.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/train_test.png">
+				<div class="caption">Training data</div>
+				</div>
+				
+				<br>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/trainone.png">
+				<div class="caption">Training label</div>
+				</div>
+				
+				<br>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/testdf.png">
+				<div class="caption">Testing data</div>
+				</div>
+				
+				<br>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/testone.png">
+				<div class="caption">Testing labels</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				After the data is splitted, it is fed into the neural network models like ANN to find the best performance possible.
+				</p>
+				
+				<br>
+				
+			<h4>Embedding method</h4>
+				
+				<br>
+				
+				<p>
+				After the stop words are removed and the text data is converted to lemmas using the lemmatization and stemming techniques, the texts are tokenized and converted to the sequence as shown in the picture below. In the picture, only the top 5000 words are used to be tokenized.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/tokenizer.png">
+				<div class="caption">Testing labels</div>
+				</div>
+				
+				<br>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/tokenizer_result.png">
+				<div class="caption">The sequence</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				After that, the documents are padded to have the same number of words in each document for the neural network models. The function is shown in the below picture. In the picture below, all documents will add to have the word length at 100.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/padding.png">
+				<div class="caption">Padding function</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				The data will be splitted into a training set and a testing set in the proportion of 80:20. The labels for both training set and testing set are converted to the one-hot encoding format following the function below.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/sample_split.png">
+				<div class="caption">Training and testing split function</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/one_hot.png">
+				<div class="caption">One-hot encoding function for labels</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/traindf_embd.png">
+				<div class="caption">Training data</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/trainone.png">
+				<div class="caption">Training labels</div>
+				</div>
+				
+				<br>
+				
+
+				<div class="img">
+				<img width="600" src="image/assignment4/testdf_embd.png">
+				<div class="caption">Testing data</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/testone.png">
+				<div class="caption">Testing labels</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				Then, the prepared data is fed into the neural network models like ANN, CNN, and LSTM to find the best performance possible.
+				</p>
+				
+				<br>
+				<h4>GloVe</h4>
+				
+				<br>
+				
+				<p>
+				The text data is processed in the same way as the previous part for tokenization and padding. The different thing is to match the tokens and GloVe’s embedding to create an embedding matrix for the neural network models. The function is shown below.
+				</p>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/glove_embd.png">
+				<div class="caption">GloVe</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/traindf_glove.png">
+				<div class="caption">Training data</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/trainone.png">
+				<div class="caption">Training labels</div>
+				</div>
+				
+				<br>
+				
+
+				<div class="img">
+				<img width="600" src="image/assignment4/testdf_glove.png">
+				<div class="caption">Testing data</div>
+				</div>
+				
+				<br>
+				
+				<div class="img">
+				<img width="600" src="image/assignment4/testone.png">
+				<div class="caption">Testing labels</div>
+				</div>
+				
+				<br>
+				
+				<p>
+				After the embedding matrix is created, the data is fed into the neural network models like ANN, CNN, and LSTM to find the best performance possible.
+				</p>
+				
+				
+				
+
+			</div>
+		</section>
+		
+		<section id="pt3" class="card">
+			<div class="arial">
+
+			
+			<h3>Results and Discussion</h3>
+			<br>
+			
+			<p>
+			In this chapter, several neural networks models are made of CountVectorizer and TF-IDF, word embedding, and GloVe global embedding model. All models’ accuracy will be compared to find the best one. 
+			</p>
+			<br>
+			
+			<p>
+			
+			</p>
+			<br>
+			
+			<h4>
+			CountVectorizer and TF-IDF model [Bag-Of-Words]
+			</h4>
+			
+			<br>
+			<p>
+			The testing model is ANN, which is shown in the below picture. Both CountVectorizer and TF-IDF are used to prepare the data. The accuracies are shown in the below table.
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>CountVectorizer vs TF-IDF</caption>
+			  <tr>
+				<th>Model</th>
+				<th>CountVectorizer (%)</th>
+				<th>TF-IDF (%)</th>
+
+			  </tr>
+			  <tr>
+				<td>ANN</td>
+				<td>73.62</td>
+				<td>72.44</td>
+
+
+			</table>
+			<br>
+			
+			<p>
+			According to the table, TF-IDF and CountVectorizer are close in performance. However, the CountVectorizer (CV) tends to outperform a little bit. The optimum number of features is shown in the below table. The suitable features are 4000 terms. 
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>The optimum number of features</caption>
+			  <tr>
+				<th>Model</th>
+				<th>3000 (%) </th>
+				<th>4000 (%) </th>
+				<th>5000 (%) </th>
+
+			  </tr>
+			  <tr>
+				<td>ANN</td>
+				<td>71.65</td>
+				<td>73.62</td>
+				<td>73.62</td>
+			  </tr>
+
+			</table>
+			<br>
+
+
+			<p>
+			Regarding the lemmas, lemmatization tends to outperform stemming. The main reason is that the way that stemming converts tokens into lemmas make the terms meaningless. For example, “busy” will be converted to “busi”. On the contrary, lemmatization converts the terms to lemmas based on their part of speech, which performs better. The testing features are set 4000 terms for all cases
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>Lemmatization vs Stemming</caption>
+			  <tr>
+				<th>Model</th>
+				<th>lemmatization </th>
+				<th>stemming </th>
+				<th>stemming+lemmatization </th>
+
+			  </tr>
+			  <tr>
+				<td>ANN</td>
+				<td>73.62</td>
+				<td>69.69</td>
+				<td>69.69</td>
+			  </tr>
+
+			</table>
+			<br>
+
+			<p>
+			Regarding the lemmas, lemmatization tends to outperform stemming. The main reason is that the way that stemming converts tokens into lemmas make the terms meaningless. For example, “busy” will be converted to “busi”. On the contrary, lemmatization converts the terms to lemmas based on their part of speech, which performs better. The testing features are set 4000 terms for all cases
+			</p>
+			
+			<br>
+			
+			<h4>
+			The model architecture
+			</h4>
+			
+			<br>
+			
+			<p>
+			The Artificial neural network has one input layer, one hidden layer, and one output layer. The input dimension is the number of used features. The activation function at the hidden layer is Relu and 32 hidden nodes are used.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/ann_cv.png">
+			<div class="caption">The ANN model</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			The softmax activation function is used at the output layer with 5 nodes. This is the reason why the labels need to be converted to the one-hot encoding format. Some part of training data is used as the validation data and its performance is shown in the below picture. The model epoch is 15. The model optimizer is Adam and CategoricalCrossEntropy is used as the loss function.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann.png">
+			<div class="caption">The training and validation accuracy</div>
+			</div>
+			
+			<br>
+			<p>
+			According to the above picture, the model shows a sign of overfitting. However, the parameter is optimized to get the best accuracy on the test dataset. The model accuracy is at 73.62%. The confusion matrix of the model is shown below. The model tends to predict the infrastructure label as the battery label because these two labels have some correlated terms. According to the F1-score, the model predicts the environment and news very well. The other labels are quite similar in terms of performance.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann_cv.png">
+			<div class="caption">The Confusion Matrix</div>
+			</div>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann_f1.png">
+			<div class="caption">F1-score</div>
+			</div>
+			
+			<br>
+			<p>
+			According to the above picture, the model shows a sign of overfitting. However, the parameter is optimized to get the best accuracy on the test dataset. The model accuracy is at 73.62%. The confusion matrix of the model is shown below. The model tends to predict the infrastructure label as the battery label because these two labels have some correlated terms. According to the F1-score, the model predicts the environment and news very well. The other labels are quite similar in terms of performance.
+			</p>
+			
+			<br>
+			<h4>
+			Word Embedding
+			</h4>
+			<br>
+
+			<p>
+			In this part, the text data is prepared using word embedding. The embedding dimension is 100. Several padding numbers and features are implemented to find the best accuracy. Lemmatization and stemming are also employed to understand how they work in the model as well. In addition to ANN, CNN and LSTM are implemented in this section.
+			</p>
+			
+			<br>
+			
+			<p>
+			Regarding the lemmas, lemmatization tends to outperform stemming. The main reason is that the way that stemming converts tokens into lemmas make the terms meaningless. For example, “busy” will be converted to “busi”. On the contrary, lemmatization converts the terms to lemmas based on their part of speech, which performs better. The testing features are 4781 terms for all cases and the padding number is 100. The ANN model is shown below. 
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/ann_embd_model.png">
+			<div class="caption">ANN model</div>
+			</div>
+			
+			<br>
+			
+			<br>
+			<table class="center">
+			<caption>Lemmatization vs Stemming</caption>
+			  <tr>
+				<th>Model</th>
+				<th>lemmatization </th>
+				<th>stemming </th>
+				<th>stemming+lemmatization </th>
+
+			  </tr>
+			  <tr>
+				<td>ANN</td>
+				<td>77.47</td>
+				<td>73.91</td>
+				<td>66.80</td>
+			  </tr>
+
+			</table>
+			<br>
+			<p>
+			Regarding the padding number, too high and too low numbers can affect the model accuracy. Too high padding will cause the sparse matrix, while too low padding may remove the core of meaning from a document. The result of each padding number is shown below. The testing features are 4781 terms for all cases. The optimum padding number is 100.
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>The number of padding</caption>
+			  <tr>
+				<th>Model</th>
+				<th>25</th>
+				<th>50 </th>
+				<th>100 </th>
+				<th>125 </th>
+
+			  </tr>
+			  <tr>
+			  
+				<td>ANN</td>
+				<td>66.80</td>
+				<td>70.36</td>
+				<td>77.47</td>
+				<td>71.94</td>
+				
+			  </tr>
+
+			</table>
+			<br>
+			
+			<p>
+			With regard to the number of features, the total available features tends to work well in this type of the model. The result is shown below. Therefore, the number of features is set at 4,784 in the further analysis. 
+			</p>
+			
+			<br>
+			<table class="center">
+			<caption>The number of features</caption>
+			  <tr>
+				<th>Model</th>
+				<th>3000</th>
+				<th>4000 </th>
+				<th>4784 </th>
+
+			  </tr>
+			  <tr>
+			  
+				<td>ANN</td>
+				<td>71.65</td>
+				<td>72.44</td>
+				<td>77.47</td>				
+			  </tr>
+
+			</table>
+			<br>
+			
+			<h4>
+			The model architecture of ANN
+			</h4>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/ann_embd_model.png">
+			<div class="caption">ANN model</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			The Artificial neural network has one embedding layer, one hidden layer, and the output layer. The input layer from the previous model is replaced with the embedding layer. The input dimension is the vocabulary size plus one. In this case, the vocab_size is 4934 terms. The embedding size is set 100 and the input length is 100 as well. The activation function at the hidden layer is Relu and 32 hidden nodes are used. The softmax activation function is used at the output layer with 5 nodes. This is the reason why the labels need to be converted to the one-hot encoding format. Some part of training data is used as the validation data and its performance is shown in the below picture. The model epoch is 15. The model optimizer is Adam and CategoricalCrossEntropy is used as the loss function.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann_emb.png">
+			<div class="caption">The training and validation accuracy</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			According to the above picture, the model is quite stable. The model accuracy is at 77.47%. The confusion matrix of the model is shown below. The model tends to predict the battery label more poorly compared to the other labels following the F1-score and the confusion matrix. However, the overall model performance is very good. The model performance is better than the ANN model with the bag-of-words methods. 
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann_emb_cf.png">
+			<div class="caption">The Confusion Matrix</div>
+			</div>
+			
+			<br>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann_emb_f1.png">
+			<div class="caption">The F1-score</div>
+			</div>
+			
+			<br>
+			
+			<h4>
+			The model architecture of CNN
+			</h4>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/cnn_embd.png">
+			<div class="caption">CNN model</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			The convolutional neural network (CNN) has one embedding layer, one CNN layer, max pooling and the output layer. The embedding layer is the same as the previous model.
+			The activation function at the CNN layer is Relu and 64 filters are used. The kernel size is 4. Another layer is Maxpooling1D. Maxpooling1D can be used to down-sample the input data and reduce its dimensionality, while retaining the most important information or features. Regarding the output layer, the softmax activation function is used at the output layer with 5 nodes. This is the reason why the labels need to be converted to the one-hot encoding format. Some part of training data is used as the validation data and its performance is shown in the below picture. The model epoch is 15. The model optimizer is Adam and CategoricalCrossEntropy is used as the loss function.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/cnn_emb.png">
+			<div class="caption">The training and validation accuracy</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			According to the above picture, the model is quite stable. The model accuracy is at 72.33%. The confusion matrix of the model is shown below. The model tends to predict the battery label more poorly compared to the other labels following the F1-score and the confusion matrix. However, the overall model performance is very good. The model performance is better than the ANN model with the bag-of-words methods if the confusion matrix and f1-score are considered.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/cnn_emb_cf.png">
+			<div class="caption">The Confusion Matrix</div>
+			</div>
+			
+			<br>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/cnn_emb_f1.png">
+			<div class="caption">The F1-score</div>
+			</div>
+			
+			<br>
+			
+			<h4>
+			The model architecture of LSTM
+			</h4>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/lstm_embd.png">
+			<div class="caption">LSTM model</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			The long short-term memory networks (LSTM) has one embedding layer, one LSTM layer with 50 units, and the output layer. The embedding layer is the same as the previous model. The early stopping is set up to avoid overfitting, so if the val_loss, which is the value of cost function for your cross-validation data and loss is the value of cost function for your training data, increases more than 5 times, the model will stop training.
+			</p>
+			
+			<br>
+			
+			<p>
+			Regarding the output layer, the softmax activation function is used at the output layer with 5 nodes. This is the reason why the labels need to be converted to the one-hot encoding format. Some part of training data is used as the validation data and its performance is shown in the below picture. The model epoch is 15. The model optimizer is Adam and CategoricalCrossEntropy is used as the loss function.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/LSTM_emb.png">
+			<div class="caption">The training and validation accuracy</div>
+			</div>
+			
+			<br>
+			
+			<p>
+				According to the above picture, the model is more overfitting when the epoch increases. The model accuracy is at 71.54%. The confusion matrix of the model is shown below. The model tends to predict the battery and infrastructure labels more poorly compared to the other labels following the F1-score and the confusion matrix. The reason is that both labels have a lot of words in common. This model performance is worse than the ANN and CNN models.
+			</p>
+			
+						<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/lstm_emb_cf.png">
+			<div class="caption">The Confusion Matrix</div>
+			</div>
+			
+			<br>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/LSTM_emb_f1.png">
+			<div class="caption">The F1-score</div>
+			</div>
+			
+			<br>
+			<h4>
+			GloVe
+			</h4>
+			<br>
+			<p>
+			In this part, the text data is prepared using GloVe word embedding. The embedding dimension is 100. The padding length is 100 following the previous conclusion. Only lemmatization is employed to match with words from GloVe. In addition to ANN, CNN and LSTM are implemented in this section. The words from Glove can cover around 94.0% of the total words in this dataset.
+			</p>
+			<br>
+			<h4>
+			The model architecture of ANN
+			</h4>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/ann_glove.png">
+			<div class="caption">ANN model</div>
+			</div>
+			
+			<br>
+			<p>
+			The Artificial neural network has one embedding layer, one max pooling, one hidden layer, one dropout layer, and the output layer. The embedding layer in this model is similar to the previous section. However, embedding weight is from GloVe, which is different from the previous section. The max pooling is used to adjust dimension into the proper dimension and extract the important feature. The activation function at the hidden layer is Relu and 64 hidden nodes are used. One dropout layer is implemented in the model to avoid the overfitting condition.
+			</p>
+			<br>
+			<p>
+			Regarding the output layer, the softmax activation function is used at the output layer with 5 nodes. This is the reason why the labels need to be converted to the one-hot encoding format. Some part of training data is used as the validation data and its performance is shown in the below picture. The model epoch is 15. The model optimizer is Adam and CategoricalCrossEntropy is used as the loss function. Besides, the early stopping function is employed to avoid overfitting and its configuration is the same as the previous model.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann_glove.png">
+			<div class="caption">The training and validation accuracy</div>
+			</div>
+			
+			<br>
+			<p>
+			According to the above picture, the model is not quite stable when the epoch increases. The model accuracy is at 75.50%. The confusion matrix of the model is shown below. The model tends to predict the cost and news labels more poorly compared to the other labels following the F1-score and the confusion matrix. The reason may be that the ANN model itself cannot differentiate the context between the labels not well enough.
+			</p>
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann_glove_cf.png">
+			<div class="caption">The Confusion Matrix</div>
+			</div>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/ann_glove_f1.png">
+			<div class="caption">The F1-score</div>
+			</div>
+			
+			<br>
+			<h4>
+			The model architecture of CNN
+			</h4>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/cnn_glove.png">
+			<div class="caption">CNN model</div>
+			</div>
+			
+			<br>
+			<p>
+			The CNN has one embedding layer, one CNN layer, one max pooling, one dropout layer, one hidden layer, and one output layer. The embedding layer in this model is the same as the previous model. The max pooling is used to adjust dimension into the proper dimension and extract the important feature. The dropout layer is used to avoid overfitting. The activation function at the hidden layer is Relu and 16 hidden nodes are used. Regarding the output layer, the softmax activation function is used at the output layer with 5 nodes. This is the reason why the labels need to be converted to the one-hot encoding format. Some part of training data is used as the validation data and its performance is shown in the below picture. The model epoch is 25. The model optimizer is Adam and CategoricalCrossEntropy is used as the loss function.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/cnn_glove.png">
+			<div class="caption">The training and validation accuracy</div>
+			</div>
+			
+			<br>
+			<p>
+			According to the above picture, the model is not quite stable when the epoch increases because the validation loss tries to accumulate and the accuracy drops a little bit. The model accuracy is at 77.50%. The confusion matrix of the model is shown below. The model tends to predict the battery and infrastructure labels more poorly compared to the other labels following the F1-score and the confusion matrix. The reason may be that both labels have many words in common.
+			</p>
+			
+			<br>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/cnn_glove_cf.png">
+			<div class="caption">The Confusion Matrix</div>
+			</div>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/cnn_glove_f1.png">
+			<div class="caption">The F1-score</div>
+			</div>
+			
+			<br>
+			<h4>
+			The model architecture of LSTM
+			</h4>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/lstm_glove.png">
+			<div class="caption">CNN model</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			The LSTM model has one embedding layer, one LSTM layer with the dropout at 0.25, and one output layer. The embedding layer in this model is the same as the previous model. The 64-unit LSTM is used with the dropout. The dropout is used to avoid overfitting. Regarding the output layer, the softmax activation function is used at the output layer with 5 nodes. This is the reason why the labels need to be converted to the one-hot encoding format. Some part of training data is used as the validation data and its performance is shown in the below picture. The model epoch is 15. The model optimizer is Adam and CategoricalCrossEntropy is used as the loss function.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/lstm_glove.png">
+			<div class="caption">LSTM model</div>
+			</div>
+			
+			<br>
+			
+			<p>
+			According to the above picture, the model is not quite stable when the epoch increases because the validation loss tries to accumulate and the accuracy drops a little bit. The model accuracy is at 74.50%. The confusion matrix of the model is shown below. The model tends to predict the battery and infrastructure labels more poorly compared to the other labels following the F1-score and the confusion matrix. The reason may be that both labels have many words in common. However, performance is still quite high compared to the other models.
+			</p>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/lstm_glove_cf.png">
+			<div class="caption">The Confusion Matrix</div>
+			</div>
+			
+			<br>
+			
+			<br>
+			
+			<div class="img">
+			<img width="600" src="image/assignment4/model/LSTM_glove_f1.png">
+			<div class="caption">The F1-score</div>
+			</div>
+			
+			<br>
+			<h4>
+			The models' accuracy summary
+			</h4>
+			
+			<br>
+			<table class="center">
+			<caption>The number of features</caption>
+			  <tr>
+				<th>Model</th>
+				<th>CountVectorizer</th>
+				<th>TF-IDF </th>
+				<th>Word Embedding </th>
+				<th>GloVe Embedding </th>
+
+			  </tr>
+			  <tr>
+			  
+				<td>ANN</td>
+				<td>73.62</td>
+				<td>72.44</td>
+				<td>77.47</td>	
+				<td>75.50</td>					
+			  </tr>
+			  
+			  <tr>
+				<td>CNN</td>
+				<td>-</td>
+				<td>-</td>
+				<td>72.33</td>	
+				<td>77.50</td>					
+			  </tr>
+			  
+			  <tr>
+ 
+				<td>LSTM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>71.54</td>	
+				<td>74.50</td>					
+			  </tr>
+
+			</table>
+			<br>
+			
+			<p>
+			According to the table, GloVe embedding works very well with the dataset. It results in higher accuracy compared to the other methods. The overall accuracy of all models is around 72.50-77.50%, which is very robust. The models face some obstacles when they are used to predict the labels between “battery” and “infrastructure”, which results from F1-score and confusion matrix. The main reason is that the terms from both labels are very similar such as “battery” and “charging station”. 
+			</p>
+
+			</div>
+		
+		
+		
+		</section>
+		
+			<section id="pt4" class="card">
+			<div class="arial">
+
+			
+			<h3>Conclusion</h3>
+			<br>
+			<p>
+			Neural Networks work very well on this dataset, especially with lemmatization. GloVe Embedding tends to outperform other methods because the global embedding weight can represent terms very well, which results in higher accuracy. The padding number at 100 makes the models more robust. Regarding the neural networks types, CNN using GloVe embedding outperforms any other models with accuracy of 77.50%. Most of the models tend to lose their accuracy in prediction between the “battery” label and “infrastructure” label because the terms from both labels are very similar such as “battery” and “charging station”. The accuracy of the model and F1- score indicates the neural networks performance is close to the support vector machines (SVM) even though the neural networks take more time in training.  
+			</p>
+			<br>
+			
+			</div>
+		</section>
+		
+		
+		<br>
+		
+		<section id="pt5" class="card">
+		<div class="arial">
+		<h2>Reference</h2>
+			<ul>
+				<li>https://gatesboltonanalytics.com/?page_id=790</li>
+
+
+			</ul>
+		<br>
+		
+		
+
+		</div>
+		</section>	
+		
+
+
+		
+		<section id="Data" class="card">
+			<b> Data </b>
+			<br>
+			<ul>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:x:/g/personal/tito7259_colorado_edu/ES55y0LoaBdFvcHceElbx-oBFAipsx9hUD1CRaNKVmcW2Q?e=dLwam4">The dataset</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EWINkcuDQiFCmOWOqZmj_uQBK5yUSIm1_dJBc6XntFWnAA?e=G72pee">CountVectorizer and TF-IDF Python file</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EdfoIPX0dYRDv4ghVHxhjbIBSvE6N3teWu8_aNYuTe2xng?e=zrD60O">Embedding Python file</a></li>
+				<li><a href="https://o365coloradoedu-my.sharepoint.com/:u:/g/personal/tito7259_colorado_edu/EdEMdcYwYrtAp3k72TInVVwBy2yMT9ZN2DJ9jK2TtVwAJA?e=BeYzvJ">GloVe Python file</a></li>
+
+			
+				<li><a href="">etc</a></li>
+
+			</ul>
+
+			<hr>
+
+		</section>
+
+	</main>
+
+</body>
+
+<!-- Sidebar-->
+<div id="sidebar" class="card">
+	<h3>Navigation Pane</h3>
+	<!-- Navigation -->
+	<ul id="main-nav">
+		<li><a href="#pt1">What the neural networks do and how to use it to gain information</a></li>
+		<li><a href="#pt2">Data Preparation</a></li>
+		<li><a href="#pt3">Results and Discussion</a></li>
+		<li><a href="#pt4">Conclusion</a></li>
+		<li><a href="#Data">Data</a></li>
+	</ul>
+	<hr />
+	<h3>About me</h3>
+	<ul>
+		<li><strong>Email:</strong> tito7259@colorado.edu</li>
+	</ul>
+</div>
